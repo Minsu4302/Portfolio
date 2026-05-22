@@ -1,109 +1,226 @@
 export default function HarnessArch() {
   return (
-    <svg viewBox="0 0 720 360" className="w-full h-auto">
+    <svg viewBox="0 0 880 460" className="w-full h-auto">
       <defs>
-        <marker id="hn-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8" />
+        <marker id="hn-a" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#94a3b8" />
         </marker>
-        <marker id="hn-ab" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6 Z" fill="#2563a8" />
+        <marker id="hn-b" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#2563a8" />
+        </marker>
+        <marker id="hn-g" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#22c55e" />
+        </marker>
+        <marker id="hn-p" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#9333ea" />
+        </marker>
+        <marker id="hn-o" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#f97316" />
+        </marker>
+        <marker id="hn-y" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#ca8a04" />
         </marker>
       </defs>
 
-      {/* Region labels */}
-      <text x="18" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">LOCAL — HARNESS</text>
-      <text x="448" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">CLOUD — GCP ORCHESTRATION</text>
+      {/* ══ SECTION LABELS ══ */}
+      <text x="12" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">LOCAL — HARNESS</text>
+      <text x="352" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">CI / CD</text>
+      <text x="500" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">GCP — ORCHESTRATION</text>
 
-      {/* Separator */}
-      <line x1="400" y1="20" x2="400" y2="340" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 3" />
-
-      {/* === LEFT: Harness === */}
+      {/* ══════════════════════════════════════════
+          LOCAL HARNESS BOX
+      ══════════════════════════════════════════ */}
+      <rect x="10" y="22" width="320" height="420" rx="10" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" strokeDasharray="5 3" />
 
       {/* Developer */}
-      <rect x="18" y="140" width="80" height="36" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1" />
-      <text x="58" y="163" textAnchor="middle" fontSize="12" fill="#334155" fontWeight="500">Developer</text>
+      <rect x="22" y="35" width="72" height="34" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1.2" />
+      <text x="58" y="50" textAnchor="middle" fontSize="8" fontWeight="700" fill="#334155">Developer</text>
+      <text x="58" y="62" textAnchor="middle" fontSize="7" fill="#64748b">Claude Code</text>
 
-      {/* Harness 로컬 (big box) */}
-      <rect x="126" y="80" width="200" height="160" rx="8" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="226" y="103" textAnchor="middle" fontSize="12" fill="#1a2940" fontWeight="700">Harness 로컬</text>
-      <line x1="134" y1="110" x2="318" y2="110" stroke="#2563a8" strokeWidth="0.5" opacity="0.3" />
-      <text x="226" y="128" textAnchor="middle" fontSize="9" fill="#2563a8">CoT 출력 토큰 -75%</text>
-      <text x="226" y="144" textAnchor="middle" fontSize="9" fill="#2563a8">MMR 재랭킹 + RAG 캐시</text>
-      <text x="226" y="160" textAnchor="middle" fontSize="9" fill="#2563a8">세션 압축 600줄 → 9줄 (-98%)</text>
-      <text x="226" y="176" textAnchor="middle" fontSize="9" fill="#2563a8">린터 9개 자동화 (89%)</text>
-      <text x="226" y="196" textAnchor="middle" fontSize="9" fill="#6b7280">SoT + complexity 분기</text>
-      <text x="226" y="210" textAnchor="middle" fontSize="9" fill="#6b7280">cksum 캐시 · MMR λ=0.5</text>
-      <text x="226" y="224" textAnchor="middle" fontSize="9" fill="#6b7280">C01–C09 커밋·CI 자동 차단</text>
+      {/* context-loader.sh */}
+      <rect x="108" y="35" width="210" height="34" rx="5" fill="#fff" stroke="#2563a8" strokeWidth="1.2" />
+      <text x="213" y="50" textAnchor="middle" fontSize="8" fontWeight="700" fill="#1a2940">context-loader.sh</text>
+      <text x="213" y="63" textAnchor="middle" fontSize="7" fill="#2563a8">CoT 템플릿 주입 · 세션 버퍼 로드</text>
 
-      {/* Git Commit → PR */}
-      <rect x="348" y="140" width="100" height="36" rx="6" fill="#faeeda" stroke="#854f0b" strokeWidth="1" />
-      <text x="398" y="157" textAnchor="middle" fontSize="10" fill="#633806" fontWeight="600">Git Commit</text>
-      <text x="398" y="170" textAnchor="middle" fontSize="9" fill="#633806">PR Open</text>
+      {/* Developer → context-loader */}
+      <line x1="94" y1="52" x2="108" y2="52" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
 
-      {/* === RIGHT: Cloud === */}
+      {/* ── RAG LAYER ── */}
+      <rect x="22" y="82" width="296" height="140" rx="7" fill="#fff" stroke="#9333ea" strokeWidth="1" strokeDasharray="4 2" />
+      <text x="34" y="96" fontSize="7" fontWeight="700" fill="#7e22ce" letterSpacing="0.5">RAG LAYER</text>
 
-      {/* GitHub Actions */}
-      <rect x="428" y="80" width="130" height="36" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1" />
-      <text x="493" y="103" textAnchor="middle" fontSize="11" fill="#334155" fontWeight="500">GitHub Actions</text>
+      {/* A3 */}
+      <rect x="30" y="104" width="130" height="40" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1" />
+      <text x="95" y="119" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">A3 · doc-compress.sh</text>
+      <text x="95" y="132" textAnchor="middle" fontSize="7" fill="#9333ea">51줄 → 30줄 (-41%)</text>
 
-      {/* GCP Spring Boot */}
-      <rect x="418" y="168" width="170" height="60" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="503" y="190" textAnchor="middle" fontSize="12" fill="#1a2940" fontWeight="700">GCP Orchestration</text>
-      <text x="503" y="207" textAnchor="middle" fontSize="9" fill="#2563a8">Spring Boot · PR diff 분석</text>
-      <text x="503" y="220" textAnchor="middle" fontSize="9" fill="#6b7280">CompletableFuture 병렬 실행</text>
+      {/* A2 */}
+      <rect x="172" y="104" width="132" height="40" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1" />
+      <text x="238" y="119" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">A2 · 쿼리 해시 캐시</text>
+      <text x="238" y="132" textAnchor="middle" fontSize="7" fill="#9333ea">재검색 비용 0</text>
 
-      {/* 3 Agents */}
-      <rect x="418" y="278" width="90" height="36" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="463" y="295" textAnchor="middle" fontSize="10" fill="#3c3489" fontWeight="500">Review</text>
-      <text x="463" y="308" textAnchor="middle" fontSize="9" fill="#3c3489">Claude 4.6</text>
+      {/* B1 */}
+      <rect x="30" y="154" width="130" height="40" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1" />
+      <text x="95" y="169" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">B1 · MMR 재랭킹</text>
+      <text x="95" y="182" textAnchor="middle" fontSize="7" fill="#9333ea">λ=0.5 중복 페널티</text>
 
-      <rect x="523" y="278" width="90" height="36" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="568" y="295" textAnchor="middle" fontSize="10" fill="#3c3489" fontWeight="500">Security</text>
-      <text x="568" y="308" textAnchor="middle" fontSize="9" fill="#3c3489">Gemini Flash</text>
+      {/* B2 */}
+      <rect x="172" y="154" width="132" height="40" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1" />
+      <text x="238" y="169" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">B2 · 세션 버퍼 압축</text>
+      <text x="238" y="182" textAnchor="middle" fontSize="7" fill="#9333ea">60줄 → 1줄 (-98%)</text>
 
-      <rect x="628" y="278" width="80" height="36" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="668" y="295" textAnchor="middle" fontSize="10" fill="#3c3489" fontWeight="500">Test-Gen</text>
-      <text x="668" y="308" textAnchor="middle" fontSize="9" fill="#3c3489">GPT-4o</text>
+      {/* context-loader → RAG (down) */}
+      <line x1="213" y1="69" x2="213" y2="82" stroke="#9333ea" strokeWidth="1.2" strokeDasharray="3 2" markerEnd="url(#hn-p)" />
 
-      {/* PR Comment (result) */}
-      <rect x="540" y="80" width="120" height="36" rx="4" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1" />
-      <text x="600" y="97" textAnchor="middle" fontSize="10" fill="#085041" fontWeight="500">PR Comment</text>
-      <text x="600" y="110" textAnchor="middle" fontSize="9" fill="#085041">&lt;details&gt; 토글 UI</text>
+      {/* RAG LAYER → SoT (RAG 결과를 SoT 분기에 활용) */}
+      <line x1="243" y1="222" x2="243" y2="242" stroke="#9333ea" strokeWidth="1.2" markerEnd="url(#hn-p)" />
 
-      {/* === ARROWS === */}
+      {/* ── gc-agent & SoT row ── */}
+      {/* gc-agent: 세션 중 독립 실행 (RAG와 무관) */}
+      <rect x="22" y="242" width="135" height="46" rx="5" fill="#fff" stroke="#f97316" strokeWidth="1.2" strokeDasharray="4 2" />
+      <text x="89" y="256" textAnchor="middle" fontSize="8" fontWeight="700" fill="#c2410c">gc-agent.sh</text>
+      <text x="89" y="268" textAnchor="middle" fontSize="7" fill="#f97316">예산 80% 감지 → GC 실행</text>
+      <text x="89" y="280" textAnchor="middle" fontSize="7" fill="#9ca3af">세션 중 독립 실행</text>
 
-      {/* Developer → Harness */}
-      <line x1="98" y1="158" x2="126" y2="158" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#hn-a)" />
+      <rect x="168" y="242" width="150" height="46" rx="5" fill="#fff" stroke="#2563a8" strokeWidth="1.2" />
+      <text x="243" y="257" textAnchor="middle" fontSize="8" fontWeight="700" fill="#1a2940">SoT + complexity 분기</text>
+      <text x="243" y="270" textAnchor="middle" fontSize="7" fill="#2563a8">RAG 결과 → CoT 출력 토큰 -75%</text>
 
-      {/* Harness → Git Commit */}
-      <line x1="326" y1="158" x2="348" y2="158" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#hn-a)" />
+      {/* ── constraint-check.sh ── */}
+      <rect x="22" y="306" width="296" height="40" rx="5" fill="#fef9c3" stroke="#ca8a04" strokeWidth="1.2" />
+      <text x="170" y="321" textAnchor="middle" fontSize="8" fontWeight="700" fill="#92400e">constraint-check.sh</text>
+      <text x="170" y="334" textAnchor="middle" fontSize="7" fill="#b45309">C01~C09 자동 검증 · 커밋·CI 차단 (자동화율 89%)</text>
 
-      {/* Git Commit → GitHub Actions (elbow) */}
-      <path d="M398,140 L398,98 L428,98" stroke="#94a3b8" strokeWidth="1" fill="none" markerEnd="url(#hn-a)" />
+      {/* gc-agent & SoT → constraint */}
+      <line x1="89" y1="288" x2="89" y2="306" stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="3 2" markerEnd="url(#hn-a)" />
+      <line x1="243" y1="288" x2="243" y2="306" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
 
-      {/* GitHub Actions → GCP */}
-      <line x1="493" y1="116" x2="503" y2="168" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#hn-a)" />
+      {/* ── git push / PR Open ── */}
+      <rect x="22" y="364" width="296" height="38" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.5" />
+      <text x="170" y="379" textAnchor="middle" fontSize="9" fontWeight="700" fill="#15803d">git push / PR Open</text>
+      <text x="170" y="393" textAnchor="middle" fontSize="7" fill="#16a34a">PASS 시 → GitHub Actions 트리거</text>
 
-      {/* GCP → Review */}
-      <line x1="463" y1="228" x2="463" y2="278" stroke="#2563a8" strokeWidth="1" markerEnd="url(#hn-ab)" />
+      {/* constraint → git (PASS) */}
+      <line x1="170" y1="346" x2="170" y2="364" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#hn-g)" />
+      <text x="176" y="358" fontSize="7" fill="#16a34a">PASS</text>
 
-      {/* GCP → Security */}
-      <line x1="503" y1="228" x2="568" y2="278" stroke="#2563a8" strokeWidth="1" markerEnd="url(#hn-ab)" />
+      {/* ══════════════════════════════════════════
+          GITHUB ACTIONS (CI/CD BRIDGE)
+      ══════════════════════════════════════════ */}
+      <rect x="340" y="22" width="126" height="420" rx="10" fill="#f8fafc" stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" />
 
-      {/* GCP → Test-Gen */}
-      <line x1="540" y1="228" x2="650" y2="278" stroke="#2563a8" strokeWidth="1" markerEnd="url(#hn-ab)" />
+      {/* deploy.yml */}
+      <rect x="351" y="80" width="104" height="56" rx="5" fill="#fff" stroke="#f97316" strokeWidth="1.5" />
+      <text x="403" y="99" textAnchor="middle" fontSize="8" fontWeight="700" fill="#c2410c">deploy.yml</text>
+      <text x="403" y="111" textAnchor="middle" fontSize="7" fill="#f97316">main push 감지</text>
+      <text x="403" y="123" textAnchor="middle" fontSize="7" fill="#f97316">ghcr.io 빌드·푸시</text>
 
-      {/* GitHub Actions → PR Comment */}
-      <line x1="558" y1="98" x2="540" y2="98" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#hn-a)" />
+      {/* orchestrate.yml */}
+      <rect x="351" y="260" width="104" height="56" rx="5" fill="#fff" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="403" y="279" textAnchor="middle" fontSize="8" fontWeight="700" fill="#1a2940">orchestrate.yml</text>
+      <text x="403" y="291" textAnchor="middle" fontSize="7" fill="#2563a8">PR 오픈·업데이트</text>
+      <text x="403" y="303" textAnchor="middle" fontSize="7" fill="#2563a8">POST /api/orchestrate</text>
 
-      {/* Legend */}
-      <g transform="translate(18, 320)">
-        <line x1="0" y1="5" x2="18" y2="5" stroke="#94a3b8" strokeWidth="1" />
-        <circle cx="18" cy="5" r="3" fill="white" stroke="#94a3b8" strokeWidth="1" />
-        <text x="24" y="9" fontSize="9" fill="#9ca3af">동기 호출</text>
-        <line x1="90" y1="5" x2="108" y2="5" stroke="#2563a8" strokeWidth="1" />
-        <circle cx="108" cy="5" r="3" fill="white" stroke="#2563a8" strokeWidth="1" />
-        <text x="114" y="9" fontSize="9" fill="#9ca3af">병렬 에이전트 실행</text>
+      {/* git push → deploy.yml (main push path) */}
+      <path d="M318,370 L330,370 L330,108 L351,108" stroke="#f97316" strokeWidth="1.5" fill="none" markerEnd="url(#hn-o)" />
+      <text x="324" y="235" fontSize="7" fill="#f97316" transform="rotate(-90,324,235)">main push</text>
+
+      {/* git push → orchestrate.yml (PR open path) */}
+      <path d="M318,372 L334,372 L334,288 L351,288" stroke="#2563a8" strokeWidth="1.5" fill="none" markerEnd="url(#hn-b)" />
+      <text x="328" y="335" fontSize="7" fill="#2563a8" transform="rotate(-90,328,335)">PR open</text>
+
+      {/* ══════════════════════════════════════════
+          GCP — ORCHESTRATION
+      ══════════════════════════════════════════ */}
+      <rect x="478" y="22" width="392" height="420" rx="10" fill="#f8fafc" stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" />
+
+      {/* ── 배포 파이프라인 (deploy.yml 타깃) ── 상단 별도 박스 */}
+      <rect x="490" y="35" width="368" height="38" rx="6" fill="#fff7ed" stroke="#f97316" strokeWidth="1.5" />
+      <text x="674" y="50" textAnchor="middle" fontSize="8" fontWeight="700" fill="#c2410c">GCP 컨테이너 갱신</text>
+      <text x="674" y="63" textAnchor="middle" fontSize="7" fill="#f97316">SSH 접속 → docker pull ghcr.io → 컨테이너 재시작 (서비스 최신 상태 유지)</text>
+
+      {/* deploy.yml → GCP 컨테이너 갱신 */}
+      <line x1="455" y1="108" x2="490" y2="54" stroke="#f97316" strokeWidth="1.5" markerEnd="url(#hn-o)" />
+      <text x="458" y="82" fontSize="7" fill="#f97316">SSH 재배포</text>
+
+      {/* ── AI 파이프라인 시작: ContextPruner ── */}
+      <rect x="490" y="92" width="368" height="38" rx="5" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="674" y="107" textAnchor="middle" fontSize="8" fontWeight="700" fill="#1a2940">ContextPruner</text>
+      <text x="674" y="120" textAnchor="middle" fontSize="7" fill="#2563a8">lock 제거 · 8,000자 트런케이트 · PR diff 전처리</text>
+
+      {/* orchestrate.yml → ContextPruner */}
+      <line x1="455" y1="288" x2="478" y2="288" stroke="#2563a8" strokeWidth="1.5" fill="none" />
+      <path d="M478,288 L478,111 L490,111" stroke="#2563a8" strokeWidth="1.5" fill="none" markerEnd="url(#hn-b)" />
+      <text x="461" y="207" fontSize="7" fill="#2563a8" transform="rotate(-90,461,207)">curl 요청</text>
+
+      {/* ── OrchestratorService ── */}
+      <rect x="490" y="148" width="368" height="40" rx="5" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="674" y="164" textAnchor="middle" fontSize="9" fontWeight="700" fill="#1a2940">OrchestratorService (Claude Planner)</text>
+      <text x="674" y="178" textAnchor="middle" fontSize="7" fill="#2563a8">PR diff 분석 → review / security / test-gen 동적 선택·스킵 결정</text>
+
+      {/* ContextPruner → OrchestratorService */}
+      <line x1="674" y1="130" x2="674" y2="148" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+
+      {/* 병렬 실행 label */}
+      <text x="674" y="204" textAnchor="middle" fontSize="7" fill="#9ca3af">CompletableFuture 병렬 실행 · 120s 타임아웃 가드</text>
+
+      {/* ── 3 Agents ── */}
+      <rect x="490" y="212" width="112" height="56" rx="5" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.5" />
+      <text x="546" y="229" textAnchor="middle" fontSize="8" fontWeight="700" fill="#3c3489">Review Agent</text>
+      <text x="546" y="241" textAnchor="middle" fontSize="7" fill="#534ab7">Claude Sonnet 4.6</text>
+      <text x="546" y="253" textAnchor="middle" fontSize="7" fill="#9ca3af">코드 품질 검토</text>
+
+      <rect x="618" y="212" width="112" height="56" rx="5" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.5" />
+      <text x="674" y="229" textAnchor="middle" fontSize="8" fontWeight="700" fill="#3c3489">Security Agent</text>
+      <text x="674" y="241" textAnchor="middle" fontSize="7" fill="#534ab7">Gemini 1.5 Flash</text>
+      <text x="674" y="253" textAnchor="middle" fontSize="7" fill="#9ca3af">보안 취약점 분석</text>
+
+      <rect x="746" y="212" width="112" height="56" rx="5" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.5" />
+      <text x="802" y="229" textAnchor="middle" fontSize="8" fontWeight="700" fill="#3c3489">Test-Gen Agent</text>
+      <text x="802" y="241" textAnchor="middle" fontSize="7" fill="#534ab7">GPT-4o-mini</text>
+      <text x="802" y="253" textAnchor="middle" fontSize="7" fill="#9ca3af">테스트 케이스 생성</text>
+
+      {/* OrchestratorService → 3 Agents */}
+      <line x1="546" y1="188" x2="546" y2="212" stroke="#2563a8" strokeWidth="1.2" markerEnd="url(#hn-b)" />
+      <line x1="674" y1="188" x2="674" y2="212" stroke="#2563a8" strokeWidth="1.2" markerEnd="url(#hn-b)" />
+      <line x1="802" y1="188" x2="802" y2="212" stroke="#2563a8" strokeWidth="1.2" markerEnd="url(#hn-b)" />
+
+      {/* ── ConflictResolver ── */}
+      <rect x="490" y="288" width="368" height="40" rx="5" fill="#faf5ff" stroke="#9333ea" strokeWidth="1.5" />
+      <text x="674" y="304" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">ConflictResolver</text>
+      <text x="674" y="318" textAnchor="middle" fontSize="7" fill="#9333ea">review ⊕ security 충돌 → YES: Claude 재위임 판정 · NO: 표준 규칙</text>
+
+      {/* 3 Agents → ConflictResolver */}
+      <line x1="546" y1="268" x2="546" y2="288" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+      <line x1="674" y1="268" x2="674" y2="288" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+      <line x1="802" y1="268" x2="802" y2="288" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+
+      {/* ── DeploymentGateService ── */}
+      <rect x="490" y="348" width="368" height="40" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.5" />
+      <text x="674" y="364" textAnchor="middle" fontSize="8" fontWeight="700" fill="#15803d">DeploymentGateService</text>
+      <text x="674" y="378" textAnchor="middle" fontSize="7" fill="#16a34a">APPROVED → merge 허용 · REJECTED → 차단 사유 리포트</text>
+
+      <line x1="674" y1="328" x2="674" y2="348" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+
+      {/* ── PR Comment ── */}
+      <rect x="490" y="406" width="368" height="28" rx="5" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1.5" />
+      <text x="674" y="419" textAnchor="middle" fontSize="8" fontWeight="700" fill="#085041">PR Comment</text>
+      <text x="674" y="430" textAnchor="middle" fontSize="7" fill="#0f6e56">&lt;details&gt; 접기/펼치기 · review / security / test-gen 분리 리포트</text>
+
+      <line x1="674" y1="388" x2="674" y2="406" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#hn-g)" />
+
+      {/* ── LEGEND ── */}
+      <g transform="translate(10, 448)">
+        <line x1="0" y1="4" x2="14" y2="4" stroke="#94a3b8" strokeWidth="1.2" />
+        <text x="18" y="8" fontSize="7" fill="#9ca3af">동기 호출</text>
+        <line x1="75" y1="4" x2="89" y2="4" stroke="#2563a8" strokeWidth="1.2" />
+        <text x="93" y="8" fontSize="7" fill="#9ca3af">Orchestration 흐름</text>
+        <line x1="195" y1="4" x2="209" y2="4" stroke="#9333ea" strokeWidth="1.2" strokeDasharray="3 2" />
+        <text x="213" y="8" fontSize="7" fill="#9ca3af">RAG / 컨텍스트 주입</text>
+        <line x1="325" y1="4" x2="339" y2="4" stroke="#f97316" strokeWidth="1.2" />
+        <text x="343" y="8" fontSize="7" fill="#9ca3af">배포 파이프라인</text>
+        <line x1="435" y1="4" x2="449" y2="4" stroke="#22c55e" strokeWidth="1.2" />
+        <text x="453" y="8" fontSize="7" fill="#9ca3af">PASS / APPROVED</text>
       </g>
     </svg>
   )

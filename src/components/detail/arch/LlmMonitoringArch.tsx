@@ -1,114 +1,194 @@
 export default function LlmMonitoringArch() {
   return (
-    <svg viewBox="0 0 720 340" className="w-full h-auto">
+    <svg viewBox="0 0 820 450" className="w-full h-auto">
       <defs>
-        <marker id="llm-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8" />
+        <marker id="lm-a" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#94a3b8" />
         </marker>
-        <marker id="llm-am" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6 Z" fill="#a78bfa" />
+        <marker id="lm-p" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#a78bfa" />
+        </marker>
+        <marker id="lm-o" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#f97316" />
+        </marker>
+        <marker id="lm-b" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#3b82f6" />
+        </marker>
+        <marker id="lm-g" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#22c55e" />
         </marker>
       </defs>
 
-      {/* Row labels */}
-      <text x="18" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">PIPELINE</text>
-      <text x="558" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">TARGETS</text>
+      {/* ══ SECTION LABELS ══ */}
+      <text x="12" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">CHAT INTERFACE</text>
+      <text x="210" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">FASTAPI BACKEND</text>
+      <text x="560" y="13" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">OBSERVABILITY STACK</text>
+      <text x="12" y="263" fontSize="8" fontWeight="700" fill="#9ca3af" letterSpacing="1">AWS EC2 (실서비스)</text>
 
-      {/* === Pipeline (left to right) === */}
+      {/* ── React Chatbot UI ── */}
+      <rect x="12" y="22" width="150" height="75" rx="8" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="87" y="42" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1a2940">React Chatbot UI</text>
+      <text x="87" y="56" textAnchor="middle" fontSize="8" fill="#2563a8">SSE 스트리밍 수신</text>
+      <text x="87" y="69" textAnchor="middle" fontSize="8" fill="#2563a8">Grafana iframe 임베드</text>
+      <text x="87" y="82" textAnchor="middle" fontSize="8" fill="#64748b">챗봇 + 대시보드 단일 UI</text>
 
-      {/* 자연어 Input */}
-      <rect x="18" y="60" width="85" height="36" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1" />
-      <text x="60" y="77" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="500">자연어</text>
-      <text x="60" y="90" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="500">Input</text>
+      {/* React → FastAPI SSE */}
+      <line x1="162" y1="58" x2="207" y2="58" stroke="#2563a8" strokeWidth="1.5" markerEnd="url(#lm-b)" />
+      <text x="183" y="52" textAnchor="middle" fontSize="7" fill="#2563a8">SSE</text>
 
-      {/* FastAPI + LLM */}
-      <rect x="133" y="38" width="140" height="80" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="203" y="60" textAnchor="middle" fontSize="12" fill="#1a2940" fontWeight="700">FastAPI</text>
-      <text x="203" y="76" textAnchor="middle" fontSize="9" fill="#2563a8">Intent 분류 · LLM 추론</text>
-      <text x="203" y="90" textAnchor="middle" fontSize="8" fill="#6b7280">Claude / GPT / Ollama</text>
-      <text x="203" y="105" textAnchor="middle" fontSize="8" fill="#6b7280">ARQ + Redis (비동기)</text>
+      {/* ── FastAPI Backend ── */}
+      <rect x="207" y="22" width="330" height="205" rx="8" fill="#f8fafc" stroke="#64748b" strokeWidth="1.5" strokeDasharray="5 3" />
 
-      {/* Whitelist 검증 */}
-      <rect x="305" y="60" width="105" height="36" rx="6" fill="#faeeda" stroke="#854f0b" strokeWidth="1" />
-      <text x="357" y="77" textAnchor="middle" fontSize="10" fill="#633806" fontWeight="600">Whitelist</text>
-      <text x="357" y="90" textAnchor="middle" fontSize="9" fill="#633806">검증 (7개 액션)</text>
+      {/* Intent Classifier */}
+      <rect x="220" y="38" width="95" height="38" rx="5" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="267" y="54" textAnchor="middle" fontSize="9" fontWeight="700" fill="#1a2940">Intent</text>
+      <text x="267" y="66" textAnchor="middle" fontSize="8" fill="#2563a8">Classifier</text>
 
-      {/* 허용 액션 목록 */}
-      <rect x="440" y="22" width="100" height="152" rx="6" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="490" y="42" textAnchor="middle" fontSize="10" fill="#3c3489" fontWeight="700">허용 액션</text>
-      <line x1="448" y1="48" x2="532" y2="48" stroke="#534ab7" strokeWidth="0.5" opacity="0.4" />
-      <text x="490" y="64" textAnchor="middle" fontSize="9" fill="#3c3489">모니터링 추가</text>
-      <text x="490" y="80" textAnchor="middle" fontSize="9" fill="#3c3489">알림 규칙 생성</text>
-      <text x="490" y="96" textAnchor="middle" fontSize="9" fill="#3c3489">대시보드 임포트</text>
-      <text x="490" y="112" textAnchor="middle" fontSize="9" fill="#3c3489">대시보드 편집</text>
-      <text x="490" y="128" textAnchor="middle" fontSize="9" fill="#3c3489">로그 검색</text>
-      <text x="490" y="144" textAnchor="middle" fontSize="9" fill="#3c3489">알림 요약</text>
-      <text x="490" y="160" textAnchor="middle" fontSize="9" fill="#3c3489">상태 조회</text>
+      {/* Orchestrator */}
+      <rect x="330" y="38" width="95" height="38" rx="5" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="377" y="54" textAnchor="middle" fontSize="9" fontWeight="700" fill="#1a2940">Orchestrator</text>
+      <text x="377" y="66" textAnchor="middle" fontSize="8" fill="#2563a8">Whitelist(7)</text>
 
-      {/* === Target Systems (right column) === */}
+      {/* Executor */}
+      <rect x="440" y="38" width="85" height="38" rx="5" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="482" y="54" textAnchor="middle" fontSize="9" fontWeight="700" fill="#1a2940">Executor</text>
+      <text x="482" y="66" textAnchor="middle" fontSize="8" fill="#2563a8">API 실행</text>
 
-      {/* Prometheus */}
-      <rect x="572" y="22" width="110" height="30" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="627" y="41" textAnchor="middle" fontSize="11" fill="#3c3489" fontWeight="500">Prometheus</text>
+      {/* Arrows: Intent→Orch→Exec */}
+      <line x1="315" y1="57" x2="330" y2="57" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#lm-a)" />
+      <line x1="425" y1="57" x2="440" y2="57" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#lm-a)" />
+
+      {/* LLM Provider row */}
+      <text x="220" y="103" fontSize="7" fill="#9ca3af" fontWeight="600">LLM PROVIDER</text>
+      <rect x="220" y="110" width="78" height="30" rx="4" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="259" y="129" textAnchor="middle" fontSize="8" fontWeight="600" fill="#15803d">OpenAI GPT</text>
+      <rect x="306" y="110" width="78" height="30" rx="4" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="345" y="129" textAnchor="middle" fontSize="8" fontWeight="600" fill="#15803d">Claude</text>
+      <rect x="392" y="110" width="78" height="30" rx="4" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="431" y="129" textAnchor="middle" fontSize="8" fontWeight="600" fill="#15803d">Ollama</text>
+      <text x="431" y="138" textAnchor="middle" fontSize="7" fill="#16a34a">(offline)</text>
+
+      {/* Arrows from Orchestrator to each LLM */}
+      <line x1="377" y1="76" x2="377" y2="100" stroke="#22c55e" strokeWidth="1" strokeDasharray="3 2" markerEnd="url(#lm-g)" />
+      <path d="M377,100 L259,100 L259,110" stroke="#22c55e" strokeWidth="1" fill="none" strokeDasharray="3 2" />
+      <line x1="377" y1="100" x2="345" y2="110" stroke="#22c55e" strokeWidth="1" strokeDasharray="3 2" markerEnd="url(#lm-g)" />
+      <line x1="377" y1="100" x2="431" y2="110" stroke="#22c55e" strokeWidth="1" strokeDasharray="3 2" markerEnd="url(#lm-g)" />
+
+      {/* Semantic Cache + ARQ row */}
+      <text x="220" y="162" fontSize="7" fill="#9ca3af" fontWeight="600">INFRA</text>
+      <rect x="220" y="168" width="120" height="30" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1.2" />
+      <text x="280" y="183" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">Semantic Cache</text>
+      <text x="280" y="193" textAnchor="middle" fontSize="7" fill="#9333ea">Redis · 동일의도 LLM절감</text>
+      <rect x="352" y="168" width="118" height="30" rx="4" fill="#faf5ff" stroke="#9333ea" strokeWidth="1.2" />
+      <text x="411" y="183" textAnchor="middle" fontSize="8" fontWeight="700" fill="#7e22ce">ARQ Job Queue</text>
+      <text x="411" y="193" textAnchor="middle" fontSize="7" fill="#9333ea">Redis · 무거운 분석 비동기</text>
+
+      {/* Executor → SSE back */}
+      <path d="M482,76 L482,215 L87,215 L87,97" stroke="#2563a8" strokeWidth="1" strokeDasharray="4 2" fill="none" markerEnd="url(#lm-b)" />
+      <text x="280" y="224" textAnchor="middle" fontSize="7" fill="#2563a8">SSE stream 응답</text>
+
+      {/* Executor → Observability (right) */}
+      <line x1="537" y1="57" x2="558" y2="57" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#lm-a)" />
+
+      {/* ══ OBSERVABILITY STACK ══ */}
+      <rect x="558" y="22" width="252" height="225" rx="8" fill="#f8fafc" stroke="#64748b" strokeWidth="1.5" strokeDasharray="5 3" />
+
+      {/* OTel Collector */}
+      <rect x="570" y="35" width="228" height="30" rx="5" fill="#fff7ed" stroke="#f97316" strokeWidth="1.5" />
+      <text x="684" y="55" textAnchor="middle" fontSize="9" fontWeight="700" fill="#c2410c">OTel Collector (수신)</text>
+
+      {/* 3 storage targets */}
+      <rect x="570" y="80" width="66" height="28" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.2" />
+      <text x="603" y="98" textAnchor="middle" fontSize="8" fontWeight="600" fill="#3c3489">Prometheus</text>
+
+      <rect x="645" y="80" width="66" height="28" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.2" />
+      <text x="678" y="98" textAnchor="middle" fontSize="8" fontWeight="600" fill="#3c3489">Tempo</text>
+
+      <rect x="720" y="80" width="58" height="28" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.2" />
+      <text x="749" y="98" textAnchor="middle" fontSize="8" fontWeight="600" fill="#3c3489">Elastic</text>
+
+      {/* OTel Collector → 3 targets */}
+      <line x1="630" y1="65" x2="603" y2="80" stroke="#f97316" strokeWidth="1.2" markerEnd="url(#lm-o)" />
+      <line x1="684" y1="65" x2="678" y2="80" stroke="#f97316" strokeWidth="1.2" markerEnd="url(#lm-o)" />
+      <line x1="738" y1="65" x2="749" y2="80" stroke="#f97316" strokeWidth="1.2" markerEnd="url(#lm-o)" />
 
       {/* Grafana */}
-      <rect x="572" y="66" width="110" height="30" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="627" y="85" textAnchor="middle" fontSize="11" fill="#3c3489" fontWeight="500">Grafana</text>
-
-      {/* Elasticsearch */}
-      <rect x="572" y="110" width="110" height="30" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="627" y="129" textAnchor="middle" fontSize="11" fill="#3c3489" fontWeight="500">Elasticsearch</text>
-
-      {/* Langfuse */}
-      <rect x="572" y="154" width="110" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1" />
-      <text x="627" y="173" textAnchor="middle" fontSize="11" fill="#085041" fontWeight="500">Langfuse</text>
+      <rect x="570" y="124" width="86" height="28" rx="4" fill="#fff7ed" stroke="#f97316" strokeWidth="1.2" />
+      <text x="613" y="142" textAnchor="middle" fontSize="8" fontWeight="600" fill="#c2410c">Grafana</text>
+      {/* Prometheus → Grafana */}
+      <line x1="603" y1="108" x2="603" y2="124" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#lm-a)" />
 
       {/* Alertmanager */}
-      <rect x="572" y="198" width="110" height="30" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1" />
-      <text x="627" y="217" textAnchor="middle" fontSize="11" fill="#3c3489" fontWeight="500">Alertmanager</text>
+      <rect x="666" y="124" width="110" height="28" rx="4" fill="#eeedfe" stroke="#534ab7" strokeWidth="1.2" />
+      <text x="721" y="142" textAnchor="middle" fontSize="8" fontWeight="600" fill="#3c3489">Alertmanager</text>
+      {/* Prometheus → Alertmanager */}
+      <line x1="636" y1="94" x2="666" y2="138" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 2" markerEnd="url(#lm-a)" />
 
-      {/* SSE → React UI */}
-      <rect x="133" y="168" width="140" height="36" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1" />
-      <text x="203" y="185" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="500">SSE 스트리밍</text>
-      <text x="203" y="198" textAnchor="middle" fontSize="9" fill="#6b7280">React + Grafana iframe</text>
+      {/* Fluent Bit + Langfuse */}
+      <rect x="570" y="168" width="86" height="28" rx="4" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="613" y="186" textAnchor="middle" fontSize="8" fontWeight="600" fill="#15803d">Fluent Bit</text>
+      <rect x="666" y="168" width="110" height="28" rx="4" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1.2" />
+      <text x="721" y="183" textAnchor="middle" fontSize="8" fontWeight="700" fill="#085041">Langfuse</text>
+      <text x="721" y="193" textAnchor="middle" fontSize="7" fill="#0f6e56">LLM 호출 추적·비용</text>
 
-      {/* === ARROWS === */}
+      {/* FastAPI → Langfuse (dashed purple) */}
+      <path d="M482,100 L540,100 L540,182 L666,182" stroke="#a78bfa" strokeWidth="1" strokeDasharray="4 2" fill="none" markerEnd="url(#lm-p)" />
 
-      {/* Input → FastAPI */}
-      <line x1="103" y1="78" x2="133" y2="78" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* Executor → Grafana/Alertmanager directly */}
+      <path d="M537,57 L558,57" stroke="#94a3b8" strokeWidth="1" fill="none" />
 
-      {/* FastAPI → Whitelist */}
-      <line x1="273" y1="78" x2="305" y2="78" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* ngrok label inside OTel */}
+      <rect x="570" y="212" width="228" height="25" rx="4" fill="#fef9c3" stroke="#ca8a04" strokeWidth="1" strokeDasharray="3 2" />
+      <text x="684" y="229" textAnchor="middle" fontSize="8" fontWeight="600" fill="#92400e">ngrok tunnel — OTLP/HTTP:4318 (gRPC:4317 차단)</text>
 
-      {/* Whitelist → 허용 액션 */}
-      <line x1="410" y1="78" x2="440" y2="98" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* ══ EC2 REAL SERVICE ══ */}
+      <rect x="12" y="272" width="540" height="145" rx="8" fill="#fef2f2" stroke="#dc2626" strokeWidth="1.5" strokeDasharray="5 3" />
+      <text x="24" y="288" fontSize="8" fontWeight="700" fill="#dc2626" letterSpacing="0.5">AWS EC2 — magambell-dev (실제 운영 서비스)</text>
 
-      {/* 허용 액션 → Prometheus */}
-      <line x1="540" y1="52" x2="572" y2="37" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* Spring Boot + OTel Agent */}
+      <rect x="24" y="296" width="220" height="55" rx="6" fill="#fff" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="134" y="314" textAnchor="middle" fontSize="9" fontWeight="700" fill="#1a2940">Spring Boot</text>
+      <text x="134" y="327" textAnchor="middle" fontSize="8" fill="#2563a8">+ OTel Java Agent v2.27.0</text>
+      <text x="134" y="340" textAnchor="middle" fontSize="7" fill="#64748b">traces / metrics / logs 자동 계측</text>
 
-      {/* 허용 액션 → Grafana */}
-      <line x1="540" y1="80" x2="572" y2="81" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* OTel Collector (host metrics) */}
+      <rect x="24" y="363" width="220" height="42" rx="6" fill="#fff" stroke="#f97316" strokeWidth="1.5" />
+      <text x="134" y="380" textAnchor="middle" fontSize="9" fontWeight="700" fill="#c2410c">OTel Collector</text>
+      <text x="134" y="393" textAnchor="middle" fontSize="8" fill="#f97316">hostmetrics receiver (CPU/MEM/Disk/Net)</text>
 
-      {/* 허용 액션 → Elasticsearch */}
-      <line x1="540" y1="110" x2="572" y2="125" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* ngrok box (EC2 side) */}
+      <rect x="268" y="310" width="90" height="38" rx="6" fill="#fef9c3" stroke="#ca8a04" strokeWidth="1.5" />
+      <text x="313" y="326" textAnchor="middle" fontSize="9" fontWeight="700" fill="#92400e">ngrok</text>
+      <text x="313" y="338" textAnchor="middle" fontSize="7" fill="#b45309">OTLP/HTTP:4318</text>
 
-      {/* 허용 액션 → Alertmanager */}
-      <line x1="540" y1="150" x2="572" y2="213" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* OTel Collector (receive - local) */}
+      <rect x="383" y="310" width="155" height="38" rx="6" fill="#fff7ed" stroke="#f97316" strokeWidth="1.5" />
+      <text x="460" y="326" textAnchor="middle" fontSize="9" fontWeight="700" fill="#c2410c">OTel Collector</text>
+      <text x="460" y="338" textAnchor="middle" fontSize="8" fill="#f97316">(로컬 수신 → Prometheus/ES/Tempo)</text>
 
-      {/* FastAPI --LLM trace--> Langfuse (dashed) */}
-      <path d="M203,118 L203,135 L627,135 L627,154" stroke="#a78bfa" strokeWidth="1" strokeDasharray="4 3" fill="none" markerEnd="url(#llm-am)" />
+      {/* Spring Boot → ngrok */}
+      <line x1="244" y1="323" x2="268" y2="323" stroke="#f97316" strokeWidth="1.5" markerEnd="url(#lm-o)" />
+      <text x="256" y="317" textAnchor="middle" fontSize="6" fill="#f97316">OTLP</text>
+      {/* OTel Collector host → ngrok */}
+      <line x1="244" y1="382" x2="313" y2="348" stroke="#f97316" strokeWidth="1.5" markerEnd="url(#lm-o)" />
+      {/* ngrok → local OTel Collector */}
+      <line x1="358" y1="329" x2="383" y2="329" stroke="#ca8a04" strokeWidth="1.5" markerEnd="url(#lm-a)" />
 
-      {/* FastAPI → SSE */}
-      <line x1="203" y1="118" x2="203" y2="168" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#llm-a)" />
+      {/* local OTel Collector → Observability Stack (up) */}
+      <path d="M538,329 L558,329 L558,237" stroke="#f97316" strokeWidth="1.5" fill="none" markerEnd="url(#lm-o)" />
 
-      {/* Legend */}
-      <g transform="translate(18, 270)">
-        <line x1="0" y1="5" x2="18" y2="5" stroke="#94a3b8" strokeWidth="1" />
-        <circle cx="18" cy="5" r="3" fill="white" stroke="#94a3b8" strokeWidth="1" />
-        <text x="24" y="9" fontSize="9" fill="#9ca3af">동기 호출</text>
-        <line x1="90" y1="5" x2="108" y2="5" stroke="#a78bfa" strokeWidth="1" strokeDasharray="4 3" />
-        <circle cx="108" cy="5" r="3" fill="white" stroke="#a78bfa" strokeWidth="1" />
-        <text x="114" y="9" fontSize="9" fill="#9ca3af">LLM 추적 (Langfuse)</text>
+      {/* ── LEGEND ── */}
+      <g transform="translate(12, 428)">
+        <line x1="0" y1="4" x2="16" y2="4" stroke="#94a3b8" strokeWidth="1.2" />
+        <text x="20" y="8" fontSize="7" fill="#9ca3af">동기 호출</text>
+        <line x1="80" y1="4" x2="96" y2="4" stroke="#2563a8" strokeWidth="1.2" strokeDasharray="4 2" />
+        <text x="100" y="8" fontSize="7" fill="#9ca3af">SSE 스트리밍</text>
+        <line x1="180" y1="4" x2="196" y2="4" stroke="#22c55e" strokeWidth="1.2" strokeDasharray="4 2" />
+        <text x="200" y="8" fontSize="7" fill="#9ca3af">LLM 호출</text>
+        <line x1="260" y1="4" x2="276" y2="4" stroke="#a78bfa" strokeWidth="1.2" strokeDasharray="4 2" />
+        <text x="280" y="8" fontSize="7" fill="#9ca3af">Langfuse 추적</text>
+        <line x1="360" y1="4" x2="376" y2="4" stroke="#f97316" strokeWidth="1.2" />
+        <text x="380" y="8" fontSize="7" fill="#9ca3af">OTel Push (OTLP/HTTP)</text>
       </g>
     </svg>
   )
