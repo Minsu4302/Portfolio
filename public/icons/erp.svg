@@ -1,0 +1,50 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="40" fill="#1a2940"/>
+
+  <!-- Connection lines (behind nodes) -->
+  <line x1="100" y1="100" x2="52" y2="60" stroke="#2563a8" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="100" y1="100" x2="148" y2="60" stroke="#2563a8" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="100" y1="100" x2="52" y2="145" stroke="#2563a8" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="100" y1="100" x2="148" y2="145" stroke="#2563a8" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="100" y1="100" x2="100" y2="165" stroke="#2563a8" stroke-width="1.5" stroke-opacity="0.5"/>
+
+  <!-- Message arrows on lines -->
+  <circle cx="76" cy="80" r="4" fill="#3b7fd4" opacity="0.8"/>
+  <circle cx="124" cy="80" r="4" fill="#3b7fd4" opacity="0.6"/>
+  <circle cx="76" cy="122" r="4" fill="#60a5fa" opacity="0.6"/>
+  <circle cx="124" cy="122" r="4" fill="#60a5fa" opacity="0.8"/>
+
+  <!-- Center hub (API Gateway) -->
+  <circle cx="100" cy="100" r="22" fill="#2563a8"/>
+  <rect x="90" y="93" width="20" height="14" rx="3" fill="none" stroke="white" stroke-width="1.8"/>
+  <line x1="90" y1="98" x2="110" y2="98" stroke="white" stroke-width="1.5"/>
+  <rect x="104" y="107" width="5" height="5" rx="1" fill="white"/>
+
+  <!-- Top-left: Auth service -->
+  <circle cx="52" cy="55" r="16" fill="#243650" stroke="#3b7fd4" stroke-width="1.8"/>
+  <path d="M46 55C46 51.7 48.7 49 52 49C55.3 49 58 51.7 58 55" stroke="#3b7fd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <circle cx="52" cy="58" r="4" fill="#3b7fd4"/>
+
+  <!-- Top-right: Order service -->
+  <circle cx="148" cy="55" r="16" fill="#243650" stroke="#60a5fa" stroke-width="1.8"/>
+  <rect x="141" y="48" width="14" height="14" rx="2.5" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="144" y1="53" x2="152" y2="53" stroke="#60a5fa" stroke-width="1.2"/>
+  <line x1="144" y1="57" x2="150" y2="57" stroke="#60a5fa" stroke-width="1.2"/>
+  <line x1="144" y1="61" x2="152" y2="61" stroke="#60a5fa" stroke-width="1.2"/>
+
+  <!-- Bottom-left: Queue (RabbitMQ) -->
+  <circle cx="52" cy="148" r="16" fill="#243650" stroke="#3b7fd4" stroke-width="1.8"/>
+  <path d="M44 148 Q52 138 60 148 Q52 158 44 148Z" fill="none" stroke="#3b7fd4" stroke-width="1.5"/>
+  <circle cx="52" cy="148" r="3" fill="#3b7fd4"/>
+
+  <!-- Bottom-right: gRPC service -->
+  <circle cx="148" cy="148" r="16" fill="#243650" stroke="#60a5fa" stroke-width="1.8"/>
+  <line x1="141" y1="145" x2="155" y2="145" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="141" y1="150" x2="155" y2="150" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="141,143 138,145 141,147" fill="#60a5fa"/>
+  <polygon points="155,148 158,150 155,152" fill="#60a5fa"/>
+
+  <!-- Bottom: K8s deploy -->
+  <circle cx="100" cy="168" r="14" fill="#243650" stroke="#2563a8" stroke-width="1.8"/>
+  <polygon points="100,161 106,164.5 106,171.5 100,175 94,171.5 94,164.5" fill="none" stroke="#2563a8" stroke-width="1.5"/>
+</svg>

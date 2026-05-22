@@ -1,0 +1,40 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="40" fill="#1a2940"/>
+
+  <!-- IaC layer (top): code brackets -->
+  <rect x="30" y="30" width="140" height="38" rx="8" fill="#243650"/>
+  <text x="44" y="55" font-family="monospace" font-size="18" fill="#3b7fd4" font-weight="bold">{</text>
+  <rect x="62" y="42" width="36" height="5" rx="2.5" fill="#60a5fa" opacity="0.7"/>
+  <rect x="62" y="52" width="52" height="5" rx="2.5" fill="#60a5fa" opacity="0.4"/>
+  <text x="122" y="55" font-family="monospace" font-size="18" fill="#3b7fd4" font-weight="bold">}</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="68" x2="100" y2="82" stroke="#2563a8" stroke-width="2" stroke-dasharray="3 2"/>
+  <polygon points="95,80 100,88 105,80" fill="#2563a8"/>
+
+  <!-- CI/CD layer (middle): pipeline -->
+  <rect x="30" y="88" width="140" height="38" rx="8" fill="#243650"/>
+  <circle cx="54" cy="107" r="10" fill="#1a2940" stroke="#3b7fd4" stroke-width="1.5"/>
+  <path d="M50 107L53 110L59 104" stroke="#3b7fd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="64" y1="107" x2="76" y2="107" stroke="#2563a8" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <circle cx="88" cy="107" r="10" fill="#1a2940" stroke="#3b7fd4" stroke-width="1.5"/>
+  <rect x="84" y="103" width="8" height="8" rx="1.5" fill="none" stroke="#3b7fd4" stroke-width="1.5"/>
+  <line x1="98" y1="107" x2="110" y2="107" stroke="#2563a8" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <circle cx="122" cy="107" r="10" fill="#1a2940" stroke="#60a5fa" stroke-width="1.5"/>
+  <path d="M118 107L121 110L127 104" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="132" y1="107" x2="144" y2="107" stroke="#2563a8" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <circle cx="156" cy="107" r="10" fill="#2563a8"/>
+  <path d="M152 107L155 110L161 104" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="126" x2="100" y2="140" stroke="#2563a8" stroke-width="2" stroke-dasharray="3 2"/>
+  <polygon points="95,138 100,146 105,138" fill="#2563a8"/>
+
+  <!-- K8s layer (bottom): three hexagonal pods -->
+  <rect x="30" y="146" width="140" height="28" rx="8" fill="#243650"/>
+  <polygon points="56,155 63,151 70,155 70,163 63,167 56,163" fill="none" stroke="#3b7fd4" stroke-width="1.5"/>
+  <polygon points="92,155 99,151 106,155 106,163 99,167 92,163" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+  <polygon points="128,155 135,151 142,155 142,163 135,167 128,163" fill="none" stroke="#3b7fd4" stroke-width="1.5"/>
+  <line x1="70" y1="159" x2="92" y2="159" stroke="#2563a8" stroke-width="1" opacity="0.5"/>
+  <line x1="106" y1="159" x2="128" y2="159" stroke="#2563a8" stroke-width="1" opacity="0.5"/>
+</svg>
