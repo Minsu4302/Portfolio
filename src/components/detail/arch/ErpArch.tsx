@@ -1,107 +1,122 @@
 export default function ErpArch() {
   return (
-    <svg viewBox="0 0 720 360" className="w-full h-auto">
+    <svg viewBox="0 0 820 405" className="w-full h-auto">
       <defs>
-        <marker id="erp-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <marker id="ea-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
           <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8" />
         </marker>
-        <marker id="erp-am" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6 Z" fill="#a78bfa" />
+        <marker id="ea-o" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#f97316" />
+        </marker>
+        <marker id="ea-p" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#8b5cf6" />
+        </marker>
+        <marker id="ea-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#059669" />
         </marker>
       </defs>
 
-      {/* Region labels */}
-      <text x="18" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">FASTAPI MICROSERVICES</text>
-      <text x="392" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">MESSAGE BROKER</text>
-      <text x="570" y="14" fontSize="9" fill="#9ca3af" fontWeight="600" letterSpacing="0.08em">STORAGE</text>
+      {/* K8s box */}
+      <rect x="14" y="24" width="792" height="352" rx="8" fill="none" stroke="#2563a8" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.5" />
+      <text x="400" y="37" textAnchor="middle" fontSize="9" fill="#2563a8" opacity="0.7" fontWeight="600">Kubernetes Cluster — erp namespace</text>
 
-      {/* Separator 1 */}
-      <line x1="360" y1="20" x2="360" y2="330" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 3" />
-      {/* Separator 2 */}
-      <line x1="560" y1="20" x2="560" y2="330" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 3" />
-
-      {/* K8s wrapper */}
-      <rect x="18" y="25" width="330" height="280" rx="8" fill="transparent" stroke="#2563a8" strokeWidth="1" strokeDasharray="6 3" opacity="0.4" />
-      <text x="183" y="42" textAnchor="middle" fontSize="9" fill="#2563a8" opacity="0.7">Kubernetes Cluster</text>
-
-      {/* === FastAPI Services === */}
-
-      {/* HR Service */}
-      <rect x="32" y="55" width="100" height="36" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="82" y="72" textAnchor="middle" fontSize="11" fill="#1a2940" fontWeight="600">HR Service</text>
-      <text x="82" y="85" textAnchor="middle" fontSize="9" fill="#2563a8">연차 / 직원 관리</text>
-
-      {/* Approval Service */}
-      <rect x="32" y="120" width="100" height="36" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="82" y="136" textAnchor="middle" fontSize="10" fill="#1a2940" fontWeight="600">Approval</text>
-      <text x="82" y="149" textAnchor="middle" fontSize="9" fill="#2563a8">다단계 결재</text>
-
-      {/* Notification Service */}
-      <rect x="32" y="185" width="100" height="36" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="82" y="200" textAnchor="middle" fontSize="10" fill="#1a2940" fontWeight="600">Notification</text>
-      <text x="82" y="213" textAnchor="middle" fontSize="9" fill="#2563a8">WebSocket · SSE</text>
-
-      {/* Auth Service */}
-      <rect x="32" y="250" width="100" height="36" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
-      <text x="82" y="266" textAnchor="middle" fontSize="11" fill="#1a2940" fontWeight="600">Auth Service</text>
-      <text x="82" y="279" textAnchor="middle" fontSize="9" fill="#2563a8">JWT / OAuth2</text>
-
-      {/* API Gateway */}
-      <rect x="220" y="152" width="110" height="40" rx="6" fill="#faeeda" stroke="#854f0b" strokeWidth="1.5" />
-      <text x="275" y="169" textAnchor="middle" fontSize="11" fill="#633806" fontWeight="600">API Gateway</text>
-      <text x="275" y="183" textAnchor="middle" fontSize="9" fill="#633806">라우팅 / 인증</text>
-
-      {/* === RabbitMQ === */}
-      <rect x="380" y="142" width="150" height="60" rx="8" fill="#faeeda" stroke="#854f0b" strokeWidth="1.5" />
-      <text x="455" y="165" textAnchor="middle" fontSize="12" fill="#633806" fontWeight="700">RabbitMQ</text>
-      <text x="455" y="182" textAnchor="middle" fontSize="9" fill="#633806">메시지 브로커</text>
-      <text x="455" y="196" textAnchor="middle" fontSize="8" fill="#854f0b" opacity="0.8">비동기 이벤트 처리</text>
-
-      {/* === Storage === */}
-
-      {/* MongoDB */}
-      <rect x="578" y="80" width="110" height="36" rx="6" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1.5" />
-      <text x="633" y="97" textAnchor="middle" fontSize="11" fill="#085041" fontWeight="600">MongoDB</text>
-      <text x="633" y="110" textAnchor="middle" fontSize="9" fill="#085041">HR / 연차 데이터</text>
+      {/* ── Employee Service ── */}
+      <rect x="24" y="50" width="180" height="90" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <rect x="24" y="50" width="180" height="18" rx="6" fill="#dbeafe" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="114" y="63" textAnchor="middle" fontSize="9" fill="#1e3a8a" fontWeight="700">Employee Service</text>
+      <text x="114" y="80" textAnchor="middle" fontSize="7" fill="#1d4ed8">FastAPI + SQLAlchemy 2.x (asyncmy)</text>
+      <text x="114" y="92" textAnchor="middle" fontSize="7" fill="#475569">직원 · 근태 · 연차 관리</text>
+      <text x="114" y="104" textAnchor="middle" fontSize="7" fill="#475569">REST :8001 | Port 8000 (K8s)</text>
+      <text x="114" y="116" textAnchor="middle" fontSize="7" fill="#64748b">/employees /attendance /leaves</text>
+      <text x="114" y="128" textAnchor="middle" fontSize="7" fill="#64748b">caching_sha2_password + cryptography</text>
 
       {/* MySQL */}
-      <rect x="578" y="160" width="110" height="36" rx="6" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1.5" />
-      <text x="633" y="177" textAnchor="middle" fontSize="11" fill="#085041" fontWeight="600">MySQL</text>
-      <text x="633" y="190" textAnchor="middle" fontSize="9" fill="#085041">결재 / 사용자</text>
+      <rect x="215" y="62" width="100" height="66" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="265" y="78" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="700">MySQL 8</text>
+      <text x="265" y="90" textAnchor="middle" fontSize="7" fill="#15803d">employees</text>
+      <text x="265" y="102" textAnchor="middle" fontSize="7" fill="#15803d">attendance_records</text>
+      <text x="265" y="114" textAnchor="middle" fontSize="7" fill="#15803d">leave_records</text>
 
-      {/* Redis */}
-      <rect x="578" y="240" width="110" height="36" rx="6" fill="#e1f5ee" stroke="#0f6e56" strokeWidth="1.5" />
-      <text x="633" y="257" textAnchor="middle" fontSize="11" fill="#085041" fontWeight="600">Redis</text>
-      <text x="633" y="270" textAnchor="middle" fontSize="9" fill="#085041">세션 / 캐시</text>
+      {/* MongoDB */}
+      <rect x="428" y="62" width="96" height="66" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+      <text x="476" y="78" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="700">MongoDB</text>
+      <text x="476" y="90" textAnchor="middle" fontSize="7" fill="#15803d">approvals (Collection)</text>
+      <text x="476" y="102" textAnchor="middle" fontSize="7" fill="#15803d">결재 문서 · 단계 이력</text>
+      <text x="476" y="114" textAnchor="middle" fontSize="7" fill="#15803d">Motor async ODM</text>
 
-      {/* === ARROWS === */}
+      {/* ── Approval Request Service ── */}
+      <rect x="532" y="50" width="204" height="90" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <rect x="532" y="50" width="204" height="18" rx="6" fill="#dbeafe" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="634" y="63" textAnchor="middle" fontSize="9" fill="#1e3a8a" fontWeight="700">Approval Request Service</text>
+      <text x="634" y="80" textAnchor="middle" fontSize="7" fill="#1d4ed8">FastAPI + Motor (MongoDB async)</text>
+      <text x="634" y="92" textAnchor="middle" fontSize="7" fill="#475569">결재 요청 생성 · 상태 관리</text>
+      <text x="634" y="104" textAnchor="middle" fontSize="7" fill="#475569">REST :8002 | Port 8000 (K8s)</text>
+      <text x="634" y="116" textAnchor="middle" fontSize="7" fill="#64748b">POST/GET /approvals</text>
+      <text x="634" y="128" textAnchor="middle" fontSize="7" fill="#8b5cf6">→ Publish approval.work</text>
 
-      {/* Services → API Gateway */}
-      <line x1="132" y1="73" x2="220" y2="165" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
-      <line x1="132" y1="138" x2="220" y2="165" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
-      <line x1="132" y1="203" x2="220" y2="178" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
-      <line x1="132" y1="268" x2="220" y2="178" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
+      {/* RabbitMQ */}
+      <rect x="326" y="166" width="148" height="58" rx="6" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+      <text x="400" y="184" textAnchor="middle" fontSize="9" fill="#92400e" fontWeight="700">RabbitMQ</text>
+      <text x="400" y="196" textAnchor="middle" fontSize="7" fill="#b45309">Queue: approval.work</text>
+      <text x="400" y="208" textAnchor="middle" fontSize="7" fill="#b45309">비동기 결재 작업 큐 (K8s)</text>
+      <text x="400" y="219" textAnchor="middle" fontSize="7" fill="#92400e">Port: 5672 / aio-pika</text>
 
-      {/* API Gateway → RabbitMQ (async, dashed) */}
-      <line x1="330" y1="172" x2="380" y2="172" stroke="#a78bfa" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#erp-am)" />
+      {/* ── Notification Service ── */}
+      <rect x="24" y="266" width="180" height="90" rx="6" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.5" />
+      <rect x="24" y="266" width="180" height="18" rx="6" fill="#dcfce7" stroke="#16a34a" strokeWidth="1.5" />
+      <text x="114" y="279" textAnchor="middle" fontSize="9" fill="#14532d" fontWeight="700">Notification Service</text>
+      <text x="114" y="296" textAnchor="middle" fontSize="7" fill="#16a34a">FastAPI + WebSocket (native)</text>
+      <text x="114" y="308" textAnchor="middle" fontSize="7" fill="#475569">실시간 결재 알림 푸시</text>
+      <text x="114" y="320" textAnchor="middle" fontSize="7" fill="#475569">{"WS :8004 → /ws/{employeeId}"}</text>
+      <text x="114" y="332" textAnchor="middle" fontSize="7" fill="#64748b">In-memory 연결 관리</text>
+      <text x="114" y="344" textAnchor="middle" fontSize="7" fill="#64748b">결재자에게 실시간 Push</text>
 
-      {/* RabbitMQ → MongoDB */}
-      <line x1="530" y1="158" x2="578" y2="108" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
+      {/* ── Approval Processing Service ── */}
+      <rect x="532" y="266" width="204" height="90" rx="6" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" />
+      <rect x="532" y="266" width="204" height="18" rx="6" fill="#dbeafe" stroke="#2563a8" strokeWidth="1.5" />
+      <text x="634" y="279" textAnchor="middle" fontSize="9" fill="#1e3a8a" fontWeight="700">Approval Processing Service</text>
+      <text x="634" y="296" textAnchor="middle" fontSize="7" fill="#1d4ed8">FastAPI + aio-pika</text>
+      <text x="634" y="308" textAnchor="middle" fontSize="7" fill="#475569">결재 승인 · 반려 처리</text>
+      <text x="634" y="320" textAnchor="middle" fontSize="7" fill="#475569">REST :8003 | Port 8000 (K8s)</text>
+      <text x="634" y="332" textAnchor="middle" fontSize="7" fill="#8b5cf6">Subscribe ← approval.work</text>
+      <text x="634" y="344" textAnchor="middle" fontSize="7" fill="#64748b">처리 후 → ARS 결과 콜백</text>
 
-      {/* RabbitMQ → MySQL */}
-      <line x1="530" y1="172" x2="578" y2="178" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
+      {/* ── ARROWS ── */}
 
-      {/* RabbitMQ → Redis */}
-      <line x1="530" y1="185" x2="578" y2="248" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#erp-a)" />
+      {/* ES → MySQL */}
+      <line x1="204" y1="95" x2="215" y2="95" stroke="#16a34a" strokeWidth="1.2" markerEnd="url(#ea-g)" />
+
+      {/* ARS → MongoDB */}
+      <line x1="532" y1="95" x2="524" y2="95" stroke="#16a34a" strokeWidth="1.2" markerEnd="url(#ea-g)" />
+
+      {/* ARS → ES (직원 검증, 연차 확정) — route above services */}
+      <path d="M532,50 L532,44 L204,44 L204,50" stroke="#f97316" strokeWidth="1.2" fill="none" markerEnd="url(#ea-o)" />
+      <text x="368" y="41" textAnchor="middle" fontSize="7" fill="#f97316">직원 검증 · 연차 확정 (REST)</text>
+
+      {/* ARS → NS (알림 요청) — route through row gap */}
+      <path d="M532,140 L532,250 L204,250 L204,266" stroke="#f97316" strokeWidth="1.2" fill="none" markerEnd="url(#ea-o)" />
+      <text x="368" y="246" textAnchor="middle" fontSize="7" fill="#f97316">알림 요청 (REST)</text>
+
+      {/* ARS → RabbitMQ (Publish) */}
+      <path d="M634,140 L634,160 L474,160 L474,166" stroke="#8b5cf6" strokeWidth="1.2" strokeDasharray="4 2" fill="none" markerEnd="url(#ea-p)" />
+      <text x="556" y="157" textAnchor="middle" fontSize="7" fill="#8b5cf6">Publish</text>
+
+      {/* RabbitMQ → APS (Subscribe) */}
+      <path d="M400,224 L400,248 L634,248 L634,266" stroke="#8b5cf6" strokeWidth="1.2" strokeDasharray="4 2" fill="none" markerEnd="url(#ea-p)" />
+      <text x="517" y="244" textAnchor="middle" fontSize="7" fill="#8b5cf6">Subscribe</text>
+
+      {/* APS → ARS (결과 콜백) — right side path */}
+      <path d="M736,300 L756,300 L756,95 L736,95" stroke="#f97316" strokeWidth="1.2" fill="none" markerEnd="url(#ea-o)" />
+      <text x="762" y="197" fontSize="7" fill="#f97316">결과 콜백</text>
 
       {/* Legend */}
-      <g transform="translate(18, 320)">
-        <line x1="0" y1="5" x2="18" y2="5" stroke="#94a3b8" strokeWidth="1" />
-        <circle cx="18" cy="5" r="3" fill="white" stroke="#94a3b8" strokeWidth="1" />
-        <text x="24" y="9" fontSize="9" fill="#9ca3af">동기 호출</text>
-        <line x1="90" y1="5" x2="108" y2="5" stroke="#a78bfa" strokeWidth="1" strokeDasharray="4 3" />
-        <circle cx="108" cy="5" r="3" fill="white" stroke="#a78bfa" strokeWidth="1" />
-        <text x="114" y="9" fontSize="9" fill="#9ca3af">비동기 메시지</text>
+      <g transform="translate(14, 386)">
+        <line x1="0" y1="5" x2="16" y2="5" stroke="#16a34a" strokeWidth="1.2" />
+        <text x="20" y="9" fontSize="8" fill="#9ca3af">DB 연결</text>
+        <line x1="68" y1="5" x2="84" y2="5" stroke="#f97316" strokeWidth="1.2" />
+        <text x="88" y="9" fontSize="8" fill="#9ca3af">내부 REST (동기)</text>
+        <line x1="192" y1="5" x2="208" y2="5" stroke="#8b5cf6" strokeWidth="1.2" strokeDasharray="4 2" />
+        <text x="212" y="9" fontSize="8" fill="#9ca3af">RabbitMQ (비동기)</text>
       </g>
     </svg>
   )
