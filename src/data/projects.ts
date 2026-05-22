@@ -24,6 +24,7 @@ export interface Project {
   duration?: string
   summary: string
   image?: string
+  github?: string
   stack: string[]
   stats?: Stat[]
   background: string
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     duration: '6개월+',
     summary: '앱스토어 163위 달성 B2B 외식업 플랫폼. Backend 단독 담당.',
     image: '/icons/bytepick.svg',
+    github: 'https://github.com/Bite-Pick/bitepick-back',
     stack: ['Spring Boot', 'AWS (S3, ECR, EC2, RDS)', 'Prometheus', 'Grafana', 'Blue-Green 배포', '헥사고날 아키텍처'],
     stats: [
       { num: '163위', label: '앱스토어\n다운로드 순위' },
@@ -82,6 +84,7 @@ export const projects: Project[] = [
     period: '2025',
     summary: '자연어 챗봇 하나로 모니터링 운영 액션 전체를 처리하는 시스템.',
     image: '/icons/llm-monitoring.svg',
+    github: 'https://github.com/Minsu4302/Auto-Logging-Monitoring-By-LLM',
     stack: ['FastAPI', 'SSE', 'ARQ + Redis', 'Prometheus', 'Grafana', 'Elasticsearch', 'Alertmanager', 'OTel Collector', 'Langfuse', 'React + TypeScript'],
     background: `바이트픽 실무에서 직접 경험한 수동 모니터링 병목을 구조적으로 제거. 자연어 챗봇 인터페이스 하나로 모니터링 대상 추가·알림 규칙 생성·대시보드 생성·편집·로그 검색까지 전체 운영 액션을 처리하는 시스템을 설계·구현했습니다.`,
     contributions: [
@@ -102,6 +105,7 @@ export const projects: Project[] = [
     period: '2025',
     summary: 'AI 에이전트 실행 환경 전체를 설계한 2레이어 인프라.',
     image: '/icons/harness.svg',
+    github: 'https://github.com/Minsu4302/Harness_Infra',
     stack: ['Shell', 'Spring Boot', 'Java 21', 'GCP', 'GitHub Actions', 'Docker', 'Claude Sonnet 4.6', 'Gemini 1.5 Flash', 'GPT-4o-mini', 'RAG', 'CoT'],
     background: `AI 에이전트 개발 과정에서 컨텍스트 관리·토큰 비용·코드 품질 검증이 모두 개발자 수동 작업에 의존, 반복적 병목 발생. Harness(로컬 컨텍스트 제어)와 Orchestration(GCP 기반 AI 게이트) 두 레이어로 구조적 해결.`,
     contributions: [
@@ -122,6 +126,7 @@ export const projects: Project[] = [
     period: '2024 – 2025',
     summary: 'Terraform · Ansible · K8s · Jenkins end-to-end 파이프라인.',
     image: '/icons/infra.svg',
+    github: 'https://github.com/Minsu4302/DevOps_Infra',
     stack: ['Terraform', 'Ansible', 'Kubernetes (Kubeadm, MetalLB, Calico)', 'Jenkins', 'GitLab', 'Docker Registry', 'CloudStack'],
     background: `수동 빌드·배포 흐름(이미지 빌드/푸시 → 매니페스트 적용 → 롤링 확인)을 사람이 순차로 수행, 배포 시간 과다 및 휴먼 에러 반복 발생. Terraform으로 VM·네트워크·NAT를 코드화하고, GitLab push 한 번으로 빌드→이미지 푸시→K8s 롤링 배포까지 무인 실행하는 파이프라인을 구축했습니다.`,
     contributions: [
@@ -159,6 +164,7 @@ export const projects: Project[] = [
     period: '2024',
     summary: 'FastAPI · gRPC · RabbitMQ · K8s 기반 분산 시스템.',
     image: '/icons/erp.svg',
+    github: 'https://github.com/Minsu4302/MSA_RabbitMQ_ERP',
     stack: ['FastAPI', 'gRPC', 'RabbitMQ', 'WebSocket', 'Kubernetes', 'MongoDB', 'MySQL'],
     background: `마이크로서비스 간 통신(gRPC·RabbitMQ)·비동기 처리·분산 배포를 직접 설계·구현하며 실무 수준의 분산 시스템 복잡성을 경험하는 것이 목표. 구현 과정에서 다수의 기술적 충돌과 배포 이슈를 직접 해결했습니다.`,
     contributions: [],
