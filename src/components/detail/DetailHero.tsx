@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { GitBranch } from 'lucide-react'
+import { ExternalLink, GitBranch } from 'lucide-react'
 import { Project } from '@/data/projects'
 
 interface Props {
@@ -44,16 +44,31 @@ export default function DetailHero({ project }: Props) {
           <h1 className="text-2xl md:text-3xl font-700 text-navy mb-2">{project.name}</h1>
           <p className="text-gray-500 text-base leading-relaxed mb-4">{project.summary}</p>
 
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 border border-gray-200 rounded-lg px-4 py-2 hover:border-brand hover:text-brand transition-colors duration-200 mb-5"
-            >
-              <GitBranch size={14} />
-              GitHub 저장소
-            </a>
+          {(project.github || project.website) && (
+            <div className="flex flex-wrap gap-2 mb-5">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-gray-500 border border-gray-200 rounded-lg px-4 py-2 hover:border-brand hover:text-brand transition-colors duration-200"
+                >
+                  <GitBranch size={14} />
+                  GitHub 저장소
+                </a>
+              )}
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-gray-500 border border-gray-200 rounded-lg px-4 py-2 hover:border-brand hover:text-brand transition-colors duration-200"
+                >
+                  <ExternalLink size={14} />
+                  서비스 바로가기
+                </a>
+              )}
+            </div>
           )}
 
           <div className="flex flex-wrap gap-1.5">

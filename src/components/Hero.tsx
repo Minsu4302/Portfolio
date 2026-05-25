@@ -20,7 +20,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-500 text-base leading-relaxed mb-8">
-            앱스토어 163위 달성 실서비스 단독 운영 · LLM 기반 모니터링 자동화 설계·구현
+            앱스토어 163위 달성 실서비스 백엔드 단독 운영 · LLM 기반 모니터링 자동화 설계·구현
           </p>
 
           <div className="flex flex-wrap gap-3">

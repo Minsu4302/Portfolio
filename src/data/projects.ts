@@ -25,6 +25,7 @@ export interface Project {
   summary: string
   image?: string
   github?: string
+  website?: string
   stack: string[]
   stats?: Stat[]
   background: string
@@ -45,11 +46,12 @@ export const projects: Project[] = [
     summary: '앱스토어 163위 달성 B2B 외식업 플랫폼. Backend 단독 담당.',
     image: '/icons/bytepick.svg',
     github: 'https://github.com/Bite-Pick/bitepick-back',
+    website: 'https://www.bitepick.co.kr/',
     stack: ['Spring Boot', 'AWS (S3, ECR, EC2, RDS)', 'Prometheus', 'Grafana', 'Blue-Green 배포', '헥사고날 아키텍처'],
     stats: [
       { num: '163위', label: '앱스토어\n다운로드 순위' },
       { num: '30개', label: '운영 중인\n점주 수' },
-      { num: '6mo+', label: '실서비스\n운영 기간' },
+      { num: '6개월+', label: '실서비스\n운영 기간' },
       { num: '단독', label: 'Backend\n담당 체제' },
     ],
     background: `Prometheus·Grafana 기반 모니터링을 운영하며 알림 분석·규칙 추가·대시보드 관리 등 핵심 액션이 모두 사람을 거쳐야 한다는 구조적 한계를 직접 경험했습니다. 결제 흐름의 SDK 버전 충돌, FCM 알림의 타이밍 의존적 Race Condition, 운영팀의 반복적인 Admin 업무 요청 등 사람이 병목이 되는 구간을 직접 발견하고 제거하는 경험을 쌓았습니다. 이 경험이 LLM 기반 자동 모니터링 시스템 개발의 출발점이 됩니다.`,

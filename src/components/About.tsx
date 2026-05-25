@@ -1,7 +1,7 @@
 const stats = [
   { num: '163위', label: '앱스토어\n다운로드 순위' },
   { num: '30개', label: '운영 중인\n점주 수' },
-  { num: '6mo+', label: '실서비스\n운영 기간' },
+  { num: '6개월+', label: '실서비스\n운영 기간' },
   { num: '차석', label: '학과 석차' },
 ]
 
