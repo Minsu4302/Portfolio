@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArrowRight, FileText } from 'lucide-react'
 
 export default function Hero() {
@@ -41,9 +42,15 @@ export default function Hero() {
 
         {/* Avatar */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-48 h-48 md:w-56 md:h-56 rounded-full flex items-center justify-center text-4xl font-700 text-white"
-            style={{ background: 'linear-gradient(135deg, #1a2940 0%, #2563a8 100%)' }}>
-            차민
+          <div className="w-72 h-72 md:w-[21rem] md:h-[21rem] overflow-hidden rounded-lg">
+            <Image
+              src="/avatar.png"
+              alt="Cha Min"
+              width={336}
+              height={336}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
         </div>
       </div>
