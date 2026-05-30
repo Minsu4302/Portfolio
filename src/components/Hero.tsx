@@ -42,12 +42,12 @@ export default function Hero() {
 
         {/* Avatar */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-72 h-72 md:w-[21rem] md:h-[21rem] overflow-hidden rounded-lg">
+          <div className="w-[15.5rem] h-[15.5rem] md:w-[18.25rem] md:h-[18.25rem] overflow-hidden rounded-xl">
             <Image
               src="/avatar.png"
               alt="Cha Min"
-              width={336}
-              height={336}
+              width={292}
+              height={292}
               className="w-full h-full object-cover"
               priority
             />
