@@ -2,7 +2,7 @@ const stats = [
   { num: '163위', label: '앱스토어\n다운로드 순위' },
   { num: '30개', label: '운영 중인\n점주 수' },
   { num: '6개월+', label: '실서비스\n운영 기간' },
-  { num: '차석', label: '학과 석차' },
+  { num: '+21%', label: '테스트 커버리지 개선 \nLine, Branch' },
 ]
 
 export default function About() {
@@ -12,19 +12,18 @@ export default function About() {
         {/* Text */}
         <div>
           <p className="text-xs font-600 tracking-widest text-brand uppercase mb-3">About</p>
-          <h2 className="text-2xl font-700 text-navy mb-5">사람이 병목이 되는 구간을<br />직접 발견하고 제거합니다</h2>
+          <h2 className="text-2xl font-700 text-navy mb-5">직접 운영하며 발견한 병목을<br />자동화로 해결하며 성장합니다</h2>
           <div className="space-y-3 text-gray-600 text-sm leading-relaxed">
             <p>
-              단국대학교 컴퓨터공학과에서 학과 차석으로 재학 중이며, B2B 외식업 플랫폼{' '}
-              <span className="font-600 text-navy">바이트픽</span>에서 Backend 단독으로 6개월 이상 실서비스를 운영하고 있습니다.
+              B2B 외식업 플랫폼{' '}
+              <span className="font-600 text-navy">바이트픽</span>에서 Backend를 단독으로 6개월 이상 운영하고 있습니다.
+              30개 점주가 실제로 사용하는 서비스를 책임지며 앱스토어 다운로드 순위 163위를 달성했습니다.
             </p>
             <p>
-              Prometheus·Grafana 기반 모니터링을 운영하며 모든 핵심 액션이 사람을 거쳐야 하는 구조적 한계를 직접 경험했고,
-              이를 해결하기 위해 <span className="font-600 text-navy">LLM 기반 자동 모니터링 시스템</span>을 설계·구현했습니다.
-            </p>
-            <p>
-              결제 SDK 충돌, FCM Race Condition, GitLab Webhook 다단계 디버깅 등
-              실서비스에서 마주치는 병목을 직접 파고들어 제거하는 것을 좋아합니다.
+              운영 과정에서 JaCoCo·SpotBugs 정적 분석 도구를 도입해 Branch 커버리지를 19% → 40.2%,
+              Line 커버리지를 37% → 58%로 끌어올렸습니다. Prometheus·Grafana 모니터링을 운영하며
+              수동 의존의 구조적 한계를 직접 경험했고, 이를 해결하기 위해{' '}
+              <span className="font-600 text-navy">LLM 기반 자동 모니터링 시스템</span>을 설계·구현했습니다.
             </p>
           </div>
         </div>

@@ -13,15 +13,16 @@ export default function Hero() {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-700 text-navy leading-tight mb-4">
-            병목을 발견하고
+            운영하며 만난 병목을
             <br />
-            <span className="text-brand">직접 제거하는</span>
+            <span className="text-brand">자동화로 해결하는</span>
             <br />
             백엔드 개발자
           </h1>
 
           <p className="text-gray-500 text-base leading-relaxed mb-8">
-            앱스토어 163위 달성 실서비스 백엔드 단독 운영 · LLM 기반 모니터링 자동화 설계·구현
+            비용과 안전성을 통제할 수 있는 자동화로 성장하겠습니다<br className="hidden md:block" />
+            앱스토어 163위 달성 실서비스 운영
           </p>
 
           <div className="flex flex-wrap gap-3">

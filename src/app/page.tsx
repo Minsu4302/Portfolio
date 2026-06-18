@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import Education from '@/components/Education'
 import TechStack from '@/components/TechStack'
 import ProjectCard from '@/components/ProjectCard'
 import ProjectMiniCard from '@/components/ProjectMiniCard'
@@ -45,6 +46,8 @@ export default function Home() {
             </div>
           </section>
         </div>
+
+        <Education />
 
         <Contact />
       </main>

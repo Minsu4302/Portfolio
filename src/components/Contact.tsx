@@ -8,8 +8,8 @@ const links = [
   },
   {
     icon: Mail,
-    label: 'gkdltpa1@dankook.ac.kr',
-    href: 'mailto:gkdltpa1@dankook.ac.kr',
+    label: 'gkdltpa9987@gmail.com',
+    href: 'mailto:gkdltpa9987@gmail.com',
   },
   {
     icon: GitBranch,
@@ -25,7 +25,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="bg-gray-50 border-t border-gray-100 py-16">
       <div className="max-w-5xl mx-auto px-6">
         <div className="bg-navy rounded-2xl p-10 text-center">
           <p className="text-xs font-600 tracking-widest text-brand-light uppercase mb-3">Contact</p>

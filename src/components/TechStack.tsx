@@ -1,4 +1,4 @@
-import { Code2, Database, Zap, Activity, Cloud } from 'lucide-react'
+import { Code2, Database, Activity, Cloud } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 const categories: { label: string; icon: LucideIcon; primary: boolean; items: string[]; primaryItems?: string[] }[] = [
@@ -6,32 +6,26 @@ const categories: { label: string; icon: LucideIcon; primary: boolean; items: st
     label: 'Backend',
     icon: Code2,
     primary: true,
-    items: ['Java', 'Spring Boot', 'Spring Security', 'JPA/Hibernate', 'Python', 'FastAPI', 'Shell'],
+    items: ['Java', 'Spring Boot', 'JPA/Hibernate', 'Python', 'FastAPI'],
     primaryItems: ['Java', 'Spring Boot', 'Python', 'FastAPI'],
   },
   {
     label: 'Database',
     icon: Database,
     primary: false,
-    items: ['MySQL', 'MongoDB', 'Redis', 'Ceph'],
-  },
-  {
-    label: 'Messaging',
-    icon: Zap,
-    primary: false,
-    items: ['RabbitMQ', 'gRPC', 'WebSocket', 'SSE'],
+    items: ['MySQL', 'MongoDB', 'Redis'],
   },
   {
     label: 'Observability',
     icon: Activity,
     primary: false,
-    items: ['Prometheus', 'Grafana', 'Elasticsearch', 'OpenTelemetry', 'Alertmanager', 'Langfuse'],
+    items: ['Prometheus', 'Grafana', 'OpenTelemetry'],
   },
   {
     label: 'Cloud & Infra',
     icon: Cloud,
     primary: false,
-    items: ['AWS (S3, ECR, EC2, RDS)', 'GCP', 'Docker', 'Kubernetes (Kubeadm, MetalLB, Calico)', 'Terraform', 'Ansible', 'Jenkins', 'GitLab CI/CD'],
+    items: ['AWS (S3, EC2, RDS)', 'GCP', 'Docker', 'Kubernetes', 'Terraform'],
   },
 ]
 

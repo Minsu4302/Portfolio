@@ -47,7 +47,7 @@ export const projects: Project[] = [
     image: '/icons/bytepick.svg',
     github: 'https://github.com/Bite-Pick/bitepick-back',
     website: 'https://www.bitepick.co.kr/',
-    stack: ['Spring Boot', 'AWS (S3, ECR, EC2, RDS)', 'Prometheus', 'Grafana', 'Blue-Green 배포', '헥사고날 아키텍처'],
+    stack: ['Spring Boot', 'AWS (S3, ECR, EC2, RDS)', 'Prometheus', 'Grafana', 'Blue-Green 배포', '헥사고날 아키텍처', 'JaCoCo', 'SpotBugs'],
     stats: [
       { num: '163위', label: '앱스토어\n다운로드 순위' },
       { num: '30개', label: '운영 중인\n점주 수' },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     contributions: [
       { title: 'Admin 페이지 단독 설계·개발', desc: '영업팀 정기 미팅에서 점주 요구사항을 직접 청취해 매장·상품 정보 수정, 전체 조회, 통계 기능 설계. 운영 문의 감소 및 처리 시간 단축.' },
       { title: 'S3 PreSigned URL 업로드 설계', desc: '매장·상품 이미지를 서버 경유 없이 클라이언트 직접 업로드 방식으로 전환. 서버 부하 감소 및 API 명세 프론트 공유 완료.' },
-      { title: '모니터링 운영 구조적 병목 인식', desc: 'Prometheus·Grafana 운영 중 모든 핵심 액션이 사람을 거쳐야 하는 한계를 직접 경험. LLM 기반 자동화 시스템 개발의 출발점.' },
+      { title: '정적 분석 도구 도입 및 품질 개선', desc: 'JaCoCo·SpotBugs를 도입해 SpotBugs High/Medium 이슈 전체 해소(EI/EI2 false positive 일괄 제외 필터 적용 포함). 신규/보강 단위·통합 테스트로 Branch 커버리지 19% → 40.2%, Line 커버리지 37% → 58%로 개선(각 +21%p).' },
       { title: 'Blue-Green 배포 운영', desc: 'AWS ECR + EC2 기반 Blue-Green 배포 파이프라인 운영. 무중단 배포로 서비스 안정성 확보.' },
     ],
     troubleshooting: [
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     slug: 'llm-monitoring',
     name: 'LLM 기반 자동 모니터링 시스템',
     role: '개인 프로젝트',
-    status: '실서비스 연동',
+    status: '실서비스 연동 완료',
     period: '2025',
     summary: '자연어 챗봇 하나로 모니터링 운영 액션 전체를 처리하는 시스템.',
     image: '/icons/llm-monitoring.svg',
