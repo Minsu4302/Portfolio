@@ -16,16 +16,16 @@ const categories: { label: string; icon: LucideIcon; primary: boolean; items: st
     items: ['MySQL', 'MongoDB', 'Redis'],
   },
   {
-    label: 'Observability',
-    icon: Activity,
-    primary: false,
-    items: ['Prometheus', 'Grafana', 'OpenTelemetry'],
-  },
-  {
     label: 'Cloud & Infra',
     icon: Cloud,
     primary: false,
     items: ['AWS (S3, EC2, RDS)', 'GCP', 'Docker', 'Kubernetes', 'Terraform'],
+  },
+  {
+    label: 'Observability',
+    icon: Activity,
+    primary: false,
+    items: ['Prometheus', 'Grafana', 'OpenTelemetry'],
   },
 ]
 

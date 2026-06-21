@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="40" fill="#1a2940"/>
+
+  <!-- Trace bars (Jaeger-style span visualization) -->
+  <!-- Root span -->
+  <rect x="30" y="58" width="140" height="10" rx="3" fill="#2563a8" opacity="0.9"/>
+  <!-- Child span 1 -->
+  <rect x="44" y="76" width="90" height="8" rx="3" fill="#3b7fd4" opacity="0.8"/>
+  <!-- Child span 2 -->
+  <rect x="44" y="92" width="70" height="8" rx="3" fill="#3b7fd4" opacity="0.7"/>
+  <!-- Child span 3 -->
+  <rect x="44" y="108" width="80" height="8" rx="3" fill="#3b7fd4" opacity="0.6"/>
+
+  <!-- Connector lines from root to children -->
+  <line x1="38" y1="68" x2="38" y2="112" stroke="#2563a8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="38" y1="80" x2="44" y2="80" stroke="#2563a8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="38" y1="96" x2="44" y2="96" stroke="#2563a8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="38" y1="112" x2="44" y2="112" stroke="#2563a8" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Cost shield (bottom-right) -->
+  <path d="M138 128 L155 135 L155 150 Q155 162 138 168 Q121 162 121 150 L121 135 Z" fill="#1e3a5c" stroke="#60a5fa" stroke-width="1.8"/>
+  <!-- Dollar sign in shield -->
+  <text x="138" y="153" text-anchor="middle" font-size="16" font-weight="800" fill="#60a5fa" font-family="monospace">$</text>
+
+  <!-- Small downward arrow on shield (cost reduction) -->
+  <line x1="148" y1="136" x2="148" y2="142" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="145,140 148,143 151,140" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

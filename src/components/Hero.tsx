@@ -4,7 +4,7 @@ import { ArrowRight, FileText } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 items-center">
         {/* Text */}
         <div>
           <div className="inline-flex items-center gap-2 bg-brand-subtle text-brand-deep text-sm font-500 px-3 py-1.5 rounded-full mb-6">
@@ -41,14 +41,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Avatar */}
+        {/* Team photo */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-[15.5rem] h-[15.5rem] md:w-[18.25rem] md:h-[18.25rem] overflow-hidden rounded-xl">
+          <div className="w-full overflow-hidden rounded-xl aspect-[4/3]">
             <Image
-              src="/avatar.png"
-              alt="Cha Min"
-              width={292}
-              height={292}
+              src="/team.jpg"
+              alt="팀 협업 사진"
+              width={1330}
+              height={998}
               className="w-full h-full object-cover"
               priority
             />

@@ -4,7 +4,7 @@ import PrintButton from './PrintButton'
 
 export const metadata: Metadata = {
   title: '이력서 — 차민수',
-  description: '직접 운영하며 만난 병목을 자동화로 해결하는 백엔드 개발자 차민수의 이력서',
+  description: '직접 운영하며 만난 병목을 자동화로 해결하고, 그 해결이 남긴 다음 질문을 따라가며 성장하는 백엔드 개발자 차민수의 이력서',
 }
 
 const css = `
@@ -205,7 +205,7 @@ const css = `
 const html = `
 <div class="header">
   <h1>차민수</h1>
-  <div class="positioning">직접 운영하며 만난 병목을 비용과 안전성을 통제할 수 있는 자동화로 해결하는 백엔드 개발자로 성장하겠습니다</div>
+  <div class="positioning">직접 운영하며 만난 병목을 비용과 안전성을 통제할 수 있는 자동화로 해결하고, 그 해결이 남긴 다음 질문을 따라가며 성장하는 백엔드 개발자가 되겠습니다</div>
 </div>
 
 <section>
@@ -257,7 +257,7 @@ const html = `
     <div class="project-header">
       <div class="project-title-wrap">
         <span class="project-title">LLM 기반 자동 모니터링 시스템</span>
-        <span class="project-meta">2025 · 실서비스 연동 완료</span>
+        <span class="project-meta">풀스택 담당 · 2025 · 실서비스 연동 완료</span>
       </div>
       <a class="project-link" href="https://github.com/Minsu4302/Auto-Logging-Monitoring-By-LLM">GitHub: Auto-Logging-Monitoring-By-LLM</a>
     </div>
@@ -276,7 +276,7 @@ const html = `
     <div class="project-header">
       <div class="project-title-wrap">
         <span class="project-title">하네스 엔지니어링 + AI Orchestration</span>
-        <span class="project-meta">2025 · GCP 배포 완료</span>
+        <span class="project-meta">백엔드 담당 · 2025 · GCP 배포 완료</span>
       </div>
       <a class="project-link" href="https://github.com/Minsu4302/Harness_Infra">GitHub: Harness_Infra</a>
     </div>
@@ -284,7 +284,7 @@ const html = `
 
     <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
     <ul>
-      <li><b>문제 정의:</b> AI 에이전트 개발의 컨텍스트 관리·토큰 비용·품질 검증이 수동 의존 &rarr; Harness(로컬)와 Orchestration(PR 자동 게이트) 2레이어로 해결</li>
+      <li><b>문제 정의:</b> LLM 모니터링을 직접 구축하며 AI 에이전트 자체의 컨텍스트 관리·토큰 비용·품질 검증이 수동 의존이라는 새 병목을 발견 &rarr; Harness(로컬)와 Orchestration(PR 자동 게이트) 2레이어로 해결</li>
       <li><b>Orchestration:</b> PR 오픈 시 GitHub Actions &rarr; GCP 서비스가 diff 분석 후 review/security/test-gen 에이전트 병렬 실행, 멀티모델 라우팅, 운영 비용 <b>$0/월</b></li>
       <li><b>Harness:</b> Skeleton-of-Thought 기법으로 <b>CoT 출력 토큰 -75%</b>, MMR 재랭킹으로 RAG 검색 비용 절감, 세션 이력 압축 <b>-98%</b></li>
       <li><b>병렬 실행 중 에이전트 충돌 대응:</b> 여러 에이전트가 동시에 PR에 의견을 내며 결과가 충돌 &rarr; CompletableFuture 타임아웃 가드 + Claude 재위임 기반 Conflict Resolution으로 자동 해결</li>
@@ -295,7 +295,7 @@ const html = `
     <div class="project-header">
       <div class="project-title-wrap">
         <span class="project-title">인프라 자동화 / CI·CD 파이프라인 구축</span>
-        <span class="project-meta">2024 – 2025</span>
+        <span class="project-meta">백엔드 담당 · 2024 – 2025</span>
       </div>
       <a class="project-link" href="https://github.com/Minsu4302/DevOps_Infra">GitHub: DevOps_Infra</a>
     </div>
@@ -313,19 +313,25 @@ const html = `
   <div class="project">
     <div class="project-header">
       <div class="project-title-wrap">
-        <span class="project-title">ERP 마이크로서비스 시스템</span>
-        <span class="project-meta">2024</span>
+        <span class="project-title">TaskScope <span class="role">AI Agentic Task Tracer</span></span>
+        <span class="project-meta">백엔드 담당 · 2026.06 · 개발 완료</span>
       </div>
-      <a class="project-link" href="https://github.com/Minsu4302/MSA_RabbitMQ_ERP">GitHub: MSA_RabbitMQ_ERP</a>
+      <a class="project-link" href="https://github.com/Minsu4302/taskscope">GitHub: taskscope</a>
     </div>
-    <div class="project-stack">FastAPI · gRPC · RabbitMQ · Kubernetes · MongoDB · MySQL</div>
+    <div class="project-stack">Java 21 · Spring Boot 3.x · RabbitMQ · OpenTelemetry · Jaeger · Prometheus · Grafana · Anthropic Claude API (Haiku / Sonnet)</div>
 
-    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
+    <div class="project-category">주요 성과</div>
     <ul>
-      <li><b>문제 정의:</b> 마이크로서비스 간 통신(gRPC·RabbitMQ)·비동기 처리·분산 배포를 직접 설계·구현하며 분산 시스템 복잡성을 경험</li>
-      <li><b>마이크로서비스 콜백 URL 불일치 해결:</b> APIRouter prefix와 경로 불일치로 결재 콜백이 404 반환 &rarr; K8s 내부 DNS·엔드포인트 전수 검증 후 수정, 다단계 결재 프로세스 완성</li>
-      <li><b>FastAPI + gRPC 동시 실행 충돌 대응:</b> uvicorn reloader와 gRPC 스레드 충돌로 서버 미기동 &rarr; 구조적 한계 판단 후 RabbitMQ로 전환, 의존성 제거 및 배포 복잡도 감소</li>
-      <li><b>MongoDB datetime 직렬화 오류 해결:</b> 연차 신청 API에서 Python date 타입이 PyMongo bson 인코더와 비호환되어 500 에러 발생 &rarr; jsonable_encoder 기반 재귀 정규화 함수로 date &rarr; ISO 문자열 변환 로직 구현</li>
+      <li><b>문제 정의:</b> 하네스 + AI Orchestration 운영 중 "에이전트가 실제로 얼마를 쓰고 어디서 루프가 끊기는가"를 추적할 수 없는 가시성 공백 발견 &rarr; 멀티 에이전트 비용·품질·가시성을 동시에 통제하는 트레이싱 시스템 설계</li>
+      <li><b>trace propagation 100%:</b> traceparent 헤더 누락 버그 수정 후 dispatcher HTTP &rarr; AMQP &rarr; 3개 워커 &rarr; llm.call 전체를 단일 Jaeger trace(19 span)로 귀속. 0%에서 100%로</li>
+      <li><b>Prometheus 비용 가드레일 — 건당 3.2배 절감 (Phase 6 실측):</b> premium(Sonnet) &rarr; standard(Haiku) 자동 강등. $0.0528/건 &rarr; $0.0167/건. 단, standard 모델이 설정 누락성 결함을 일관되게 놓침 — 비용과 품질의 트레이드오프를 수치로 확인</li>
+      <li><b>복잡도 분류기 3피처 고도화:</b> diffLines + 파일확장자(.sh/.yml → context-heavy) + 워커종류(test_gen 별도 임계값) 3피처로 확장. Grafana 7개 패널로 비용/토큰/모델 분포 실시간 집계</li>
+    </ul>
+
+    <div class="project-category">트러블슈팅</div>
+    <ul class="ts-list">
+      <li><b>lazy regex 오진 — maxTokens 탓으로 잘못 추정 후 실제 원인 발견:</b> SMALL 커밋 JSON parse 실패 &rarr; maxTokens=2048 초과 오진 후 4096으로 증가 &rarr; 동일 에러 재발 &rarr; BaseWorker.extractJson()의 <code>[\s\S]*?</code> lazy regex가 응답 내 코드블록 backtick에서 조기 종료가 실제 원인 확인 <span class="arrow">&rarr;</span> <span class="result">greedy 교체로 iter 4&rarr;1 (-75%), 비용 $0.012&rarr;$0.002 (-83%)</span></li>
+      <li><b>구 worker 프로세스 누수 — 측정 비용의 10배 청구:</b> 측정 $0.4, 실제 청구 ~$5 &rarr; RabbitMQ redeliver=303 (publish=55 대비 6.5배) 발견 &rarr; 이전 세션 Java 프로세스 13개가 동일 큐에 붙어 메시지 중복 소비 <span class="arrow">&rarr;</span> <span class="result">세션 시작 전 프로세스 정리 체크리스트 수립, 비용 측정값·청구액 일치</span></li>
     </ul>
   </div>
 </section>

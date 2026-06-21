@@ -4,16 +4,12 @@ import About from '@/components/About'
 import Education from '@/components/Education'
 import TechStack from '@/components/TechStack'
 import ProjectCard from '@/components/ProjectCard'
-import ProjectMiniCard from '@/components/ProjectMiniCard'
 import Contact from '@/components/Contact'
 import { projects } from '@/data/projects'
 
 export default function Home() {
-  const mainProjects = projects.filter((p) =>
-    ['bytepick', 'llm-monitoring', 'harness'].includes(p.slug)
-  )
-  const miniProjects = projects.filter((p) =>
-    ['infra', 'erp'].includes(p.slug)
+  const allProjects = projects.filter((p) =>
+    ['bytepick', 'llm-monitoring', 'harness', 'infra', 'taskscope'].includes(p.slug)
   )
 
   return (
@@ -33,15 +29,9 @@ export default function Home() {
             <p className="text-xs font-600 tracking-widest text-brand uppercase mb-3">Projects</p>
             <h2 className="text-2xl font-700 text-navy mb-8">프로젝트</h2>
 
-            <div className="space-y-4 mb-6">
-              {mainProjects.map((p) => (
+            <div className="space-y-4">
+              {allProjects.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
-              ))}
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              {miniProjects.map((p) => (
-                <ProjectMiniCard key={p.slug} project={p} />
               ))}
             </div>
           </section>

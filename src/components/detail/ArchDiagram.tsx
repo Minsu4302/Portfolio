@@ -2,14 +2,14 @@ import BytepickArch from './arch/BytepickArch'
 import LlmMonitoringArch from './arch/LlmMonitoringArch'
 import HarnessArch from './arch/HarnessArch'
 import InfraArch from './arch/InfraArch'
-import ErpArch from './arch/ErpArch'
+import TaskScopeArch from './arch/TaskScopeArch'
 
 const archMap: Record<string, React.FC> = {
   bytepick: BytepickArch,
   'llm-monitoring': LlmMonitoringArch,
   harness: HarnessArch,
   infra: InfraArch,
-  erp: ErpArch,
+  taskscope: TaskScopeArch,
 }
 
 interface Props {
