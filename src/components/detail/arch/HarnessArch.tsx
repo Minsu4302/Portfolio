@@ -1,6 +1,6 @@
 export default function HarnessArch() {
   return (
-    <svg viewBox="0 0 880 460" className="w-full h-auto">
+    <svg viewBox="0 0 880 600" className="w-full h-auto">
       <defs>
         <marker id="hn-a" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
           <path d="M0,0 L7,2.5 L0,5 Z" fill="#94a3b8" />
@@ -20,6 +20,12 @@ export default function HarnessArch() {
         <marker id="hn-y" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
           <path d="M0,0 L7,2.5 L0,5 Z" fill="#ca8a04" />
         </marker>
+        <marker id="hn-r" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#dc2626" />
+        </marker>
+        <marker id="hn-c" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <path d="M0,0 L7,2.5 L0,5 Z" fill="#0891b2" />
+        </marker>
       </defs>
 
       {/* ══ SECTION LABELS ══ */}
@@ -30,7 +36,7 @@ export default function HarnessArch() {
       {/* ══════════════════════════════════════════
           LOCAL HARNESS BOX
       ══════════════════════════════════════════ */}
-      <rect x="10" y="22" width="320" height="420" rx="10" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" strokeDasharray="5 3" />
+      <rect x="10" y="22" width="320" height="530" rx="10" fill="#eef3fb" stroke="#2563a8" strokeWidth="1.5" strokeDasharray="5 3" />
 
       {/* Developer */}
       <rect x="22" y="35" width="72" height="34" rx="6" fill="#f1f5f9" stroke="#64748b" strokeWidth="1.2" />
@@ -89,20 +95,45 @@ export default function HarnessArch() {
       {/* ── constraint-check.sh ── */}
       <rect x="22" y="306" width="296" height="40" rx="5" fill="#fef9c3" stroke="#ca8a04" strokeWidth="1.2" />
       <text x="170" y="321" textAnchor="middle" fontSize="8" fontWeight="700" fill="#92400e">constraint-check.sh</text>
-      <text x="170" y="334" textAnchor="middle" fontSize="7" fill="#b45309">C01~C09 자동 검증 · 커밋·CI 차단 (자동화율 89%)</text>
+      <text x="170" y="334" textAnchor="middle" fontSize="7" fill="#b45309">C01~C10 자동 검증 · 커밋·CI 차단 (자동화율 90%)</text>
 
       {/* gc-agent & SoT → constraint */}
       <line x1="89" y1="288" x2="89" y2="306" stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="3 2" markerEnd="url(#hn-a)" />
       <line x1="243" y1="288" x2="243" y2="306" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
 
-      {/* ── git push / PR Open ── */}
-      <rect x="22" y="364" width="296" height="38" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.5" />
-      <text x="170" y="379" textAnchor="middle" fontSize="9" fontWeight="700" fill="#15803d">git push / PR Open</text>
-      <text x="170" y="393" textAnchor="middle" fontSize="7" fill="#16a34a">PASS 시 → GitHub Actions 트리거</text>
+      {/* ── loop-runner.sh (L1 PEV Loop) ── */}
+      <rect x="22" y="364" width="296" height="46" rx="5" fill="#fef2f2" stroke="#dc2626" strokeWidth="1.2" />
+      <text x="170" y="379" textAnchor="middle" fontSize="8" fontWeight="700" fill="#991b1b">L1 · loop-runner.sh (PEV 루프)</text>
+      <text x="170" y="391" textAnchor="middle" fontSize="7" fill="#dc2626">FAIL → 실패 컨텍스트 재주입 → 재시도 (최대 3회)</text>
+      <text x="170" y="403" textAnchor="middle" fontSize="7" fill="#dc2626">C10 · 3회 초과 → 태스크 분할 강제</text>
 
-      {/* constraint → git (PASS) */}
-      <line x1="170" y1="346" x2="170" y2="364" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#hn-g)" />
-      <text x="176" y="358" fontSize="7" fill="#16a34a">PASS</text>
+      {/* constraint → loop-runner */}
+      <line x1="170" y1="346" x2="170" y2="364" stroke="#dc2626" strokeWidth="1.2" markerEnd="url(#hn-r)" />
+
+      {/* loop-runner FAIL retry (self-loop back to constraint-check) */}
+      <path d="M318,387 C 340,387 340,326 318,326" stroke="#dc2626" strokeWidth="1.2" fill="none" strokeDasharray="3 2" markerEnd="url(#hn-r)" />
+      <text x="344" y="360" fontSize="7" fill="#dc2626" transform="rotate(-90,344,360)">FAIL 재시도</text>
+
+      {/* ── git push / PR Open ── */}
+      <rect x="22" y="428" width="296" height="38" rx="5" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.5" />
+      <text x="170" y="443" textAnchor="middle" fontSize="9" fontWeight="700" fill="#15803d">git push / PR Open</text>
+      <text x="170" y="457" textAnchor="middle" fontSize="7" fill="#16a34a">PASS 시 → GitHub Actions 트리거</text>
+
+      {/* loop-runner → git push (PASS) */}
+      <line x1="170" y1="410" x2="170" y2="428" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#hn-g)" />
+      <text x="176" y="422" fontSize="7" fill="#16a34a">PASS</text>
+
+      {/* ── reflect-agent.sh (L2 Reflection Agent) ── */}
+      <rect x="22" y="484" width="296" height="38" rx="5" fill="#ecfeff" stroke="#0891b2" strokeWidth="1.2" strokeDasharray="4 2" />
+      <text x="170" y="499" textAnchor="middle" fontSize="8" fontWeight="700" fill="#0e7490">L2 · reflect-agent.sh (Reflection Agent)</text>
+      <text x="170" y="512" textAnchor="middle" fontSize="7" fill="#0891b2">세션 종료 → 태스크·루프 히스토리 분석 → reflection.md 갱신</text>
+
+      {/* git push → reflect-agent */}
+      <line x1="170" y1="466" x2="170" y2="484" stroke="#94a3b8" strokeWidth="1.2" markerEnd="url(#hn-a)" />
+
+      {/* reflect-agent → context-loader.sh (다음 세션 자동 주입, feedback loop) */}
+      <path d="M22,503 L4,503 L4,52 L22,52" stroke="#0891b2" strokeWidth="1.2" strokeDasharray="3 2" fill="none" markerEnd="url(#hn-c)" />
+      <text x="8" y="280" fontSize="7" fill="#0891b2" transform="rotate(-90,8,280)">다음 세션 자동 주입</text>
 
       {/* ══════════════════════════════════════════
           GITHUB ACTIONS (CI/CD BRIDGE)
@@ -122,12 +153,12 @@ export default function HarnessArch() {
       <text x="403" y="303" textAnchor="middle" fontSize="7" fill="#2563a8">POST /api/orchestrate</text>
 
       {/* git push → deploy.yml (main push path) */}
-      <path d="M318,370 L330,370 L330,108 L351,108" stroke="#f97316" strokeWidth="1.5" fill="none" markerEnd="url(#hn-o)" />
-      <text x="324" y="235" fontSize="7" fill="#f97316" transform="rotate(-90,324,235)">main push</text>
+      <path d="M318,442 L332,442 L332,108 L351,108" stroke="#f97316" strokeWidth="1.5" fill="none" markerEnd="url(#hn-o)" />
+      <text x="326" y="260" fontSize="7" fill="#f97316" transform="rotate(-90,326,260)">main push</text>
 
       {/* git push → orchestrate.yml (PR open path) */}
-      <path d="M318,372 L334,372 L334,288 L351,288" stroke="#2563a8" strokeWidth="1.5" fill="none" markerEnd="url(#hn-b)" />
-      <text x="328" y="335" fontSize="7" fill="#2563a8" transform="rotate(-90,328,335)">PR open</text>
+      <path d="M318,448 L336,448 L336,288 L351,288" stroke="#2563a8" strokeWidth="1.5" fill="none" markerEnd="url(#hn-b)" />
+      <text x="330" y="380" fontSize="7" fill="#2563a8" transform="rotate(-90,330,380)">PR open</text>
 
       {/* ══════════════════════════════════════════
           GCP — ORCHESTRATION
@@ -210,7 +241,7 @@ export default function HarnessArch() {
       <line x1="674" y1="388" x2="674" y2="406" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#hn-g)" />
 
       {/* ── LEGEND ── */}
-      <g transform="translate(10, 448)">
+      <g transform="translate(10, 566)">
         <line x1="0" y1="4" x2="14" y2="4" stroke="#94a3b8" strokeWidth="1.2" />
         <text x="18" y="8" fontSize="7" fill="#9ca3af">동기 호출</text>
         <line x1="75" y1="4" x2="89" y2="4" stroke="#2563a8" strokeWidth="1.2" />
@@ -221,6 +252,10 @@ export default function HarnessArch() {
         <text x="343" y="8" fontSize="7" fill="#9ca3af">배포 파이프라인</text>
         <line x1="435" y1="4" x2="449" y2="4" stroke="#22c55e" strokeWidth="1.2" />
         <text x="453" y="8" fontSize="7" fill="#9ca3af">PASS / APPROVED</text>
+        <line x1="555" y1="4" x2="569" y2="4" stroke="#dc2626" strokeWidth="1.2" strokeDasharray="3 2" />
+        <text x="573" y="8" fontSize="7" fill="#9ca3af">PEV 루프 재시도</text>
+        <line x1="665" y1="4" x2="679" y2="4" stroke="#0891b2" strokeWidth="1.2" strokeDasharray="3 2" />
+        <text x="683" y="8" fontSize="7" fill="#9ca3af">Reflection 피드백</text>
       </g>
     </svg>
   )

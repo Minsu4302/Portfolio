@@ -33,9 +33,10 @@ const css = `
 .resume-content .header h1 {
   font-size: 23pt;
   font-weight: 800;
-  color: #1a2940;
   letter-spacing: -0.5px;
 }
+.resume-content .header h1 .name-gray { color: #475569; }
+.resume-content .header h1 .name-blue { color: #2563a8; }
 .resume-content .header .positioning {
   margin-top: 16px;
   font-size: 10.8pt;
@@ -204,7 +205,7 @@ const css = `
 
 const html = `
 <div class="header">
-  <h1>차민수</h1>
+  <h1><span class="name-gray">Minsu</span><span class="name-blue">Cha</span></h1>
   <div class="positioning">직접 운영하며 만난 병목을 비용과 안전성을 통제할 수 있는 자동화로 해결하고, 그 해결이 남긴 다음 질문을 따라가며 성장하는 백엔드 개발자가 되겠습니다</div>
 </div>
 
@@ -232,7 +233,7 @@ const html = `
     <div class="project-header">
       <div class="project-title-wrap">
         <span class="project-title">바이트픽 (실서비스 운영, 30개 점주)</span>
-        <span class="project-meta">2025.11 – 현재 · 6개월+</span>
+        <span class="project-meta">2025.11 – 현재 · 9개월+</span>
       </div>
       <a class="project-link" href="https://github.com/Bite-Pick/bitepick-back">GitHub: Bite-Pick/bitepick-back</a>
     </div>
@@ -240,7 +241,7 @@ const html = `
 
     <div class="project-category">주요 성과</div>
     <ul>
-      <li><b>앱스토어 다운로드 순위 163위 달성 —</b> 30개 점주 실서비스 운영 중인 B2B 외식업 플랫폼의 Backend 전체를 책임지고 개발</li>
+      <li><b>앱스토어 다운로드 순위 163위 달성 —</b> 30개 점주 실서비스 운영 중인 B2B 외식업 플랫폼의 Backend를 책임지고 개발</li>
       <li><b>Admin 페이지 단독 설계·개발:</b> 영업팀 미팅에서 점주 요구사항 직접 청취 &rarr; 매장·상품 조회·통계 기능 구현 &rarr; 운영 문의 감소</li>
       <li><b>S3 PreSigned URL 업로드 플로우 설계:</b> 이미지 업로드를 클라이언트 직접 전송 방식으로 전환 &rarr; 서버 부하 감소</li>
       <li><b>정적 분석 도구(JaCoCo, SpotBugs) 도입 및 품질 개선:</b> SpotBugs High/Medium 이슈 전체 해소(EI/EI2 false positive 일괄 제외 필터 적용 포함), 신규/보강 단위·통합 테스트로 Branch 커버리지 19% &rarr; 40.2%, Line 커버리지 37% &rarr; 58%로 개선(각 +21%p)</li>
@@ -248,7 +249,7 @@ const html = `
 
     <div class="project-category">트러블슈팅</div>
     <ul class="ts-list">
-      <li><b>PortOne SDK V1/V2 마이그레이션:</b> 결제 SDK 버전 충돌 발생 <span class="arrow">&rarr;</span> 충돌 지점 직접 분석·특정 <span class="arrow">&rarr;</span> <span class="result">프론트 가이드 작성 및 협업 주도로 결제 흐름 안정화</span></li>
+      <li><b>PortOne SDK V1/V2 마이그레이션:</b> 결제 SDK 버전 충돌 발생 <span class="arrow">&rarr;</span> 버전별 재현 테스트로 SDK 내부 구조 문제 직접 특정 <span class="arrow">&rarr;</span> <span class="result">프론트 마이그레이션 가이드 작성 및 협업 주도로 결제 흐름 안정화</span></li>
       <li><b>FCM APNs Race Condition 대응:</b> 알림 중복·누락 재현 <span class="arrow">&rarr;</span> 로그 분석으로 토큰 등록 타이밍 이슈 특정 <span class="arrow">&rarr;</span> <span class="result">retry loop + 중복 방지 로직 설계로 재현 이슈 현저히 감소</span></li>
     </ul>
   </div>
@@ -256,46 +257,8 @@ const html = `
   <div class="project">
     <div class="project-header">
       <div class="project-title-wrap">
-        <span class="project-title">LLM 기반 자동 모니터링 시스템</span>
-        <span class="project-meta">풀스택 담당 · 2025 · 실서비스 연동 완료</span>
-      </div>
-      <a class="project-link" href="https://github.com/Minsu4302/Auto-Logging-Monitoring-By-LLM">GitHub: Auto-Logging-Monitoring-By-LLM</a>
-    </div>
-    <div class="project-stack">FastAPI · SSE · Redis · Prometheus · Grafana · Elasticsearch · OTel Collector · Langfuse · React</div>
-
-    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
-    <ul>
-      <li><b>문제 정의:</b> 바이트픽에서 경험한 수동 모니터링 병목 제거 — 자연어 챗봇 하나로 모니터링 추가·알림 규칙·대시보드 생성·로그 검색까지 처리</li>
-      <li><b>안전한 자동화 설계:</b> 자연어 &rarr; Intent 분류 &rarr; 화이트리스트 검증 &rarr; 실행. 임의 Shell 실행을 차단하고 허용된 7개 액션만 실행</li>
-      <li><b>실서비스 연동 완료:</b> 운영 중인 Spring Boot 서비스에 OTel Java Agent 연동, SSE 스트리밍 + Grafana 임베드로 단일 UI 구현</li>
-      <li><b>LLM 환각 대응:</b> LLM이 생성한 PromQL 오류로 대시보드 오작동 위험 발생 &rarr; Prometheus API로 자동 검증·보정하는 파이프라인 추가로 구조적 차단</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <div class="project-header">
-      <div class="project-title-wrap">
-        <span class="project-title">하네스 엔지니어링 + AI Orchestration</span>
-        <span class="project-meta">백엔드 담당 · 2025 · GCP 배포 완료</span>
-      </div>
-      <a class="project-link" href="https://github.com/Minsu4302/Harness_Infra">GitHub: Harness_Infra</a>
-    </div>
-    <div class="project-stack">Shell · Spring Boot · Java 21 · GCP · GitHub Actions · Docker · Claude / Gemini / GPT</div>
-
-    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
-    <ul>
-      <li><b>문제 정의:</b> LLM 모니터링을 직접 구축하며 AI 에이전트 자체의 컨텍스트 관리·토큰 비용·품질 검증이 수동 의존이라는 새 병목을 발견 &rarr; Harness(로컬)와 Orchestration(PR 자동 게이트) 2레이어로 해결</li>
-      <li><b>Orchestration:</b> PR 오픈 시 GitHub Actions &rarr; GCP 서비스가 diff 분석 후 review/security/test-gen 에이전트 병렬 실행, 멀티모델 라우팅, 운영 비용 <b>$0/월</b></li>
-      <li><b>Harness:</b> Skeleton-of-Thought 기법으로 <b>CoT 출력 토큰 -75%</b>, MMR 재랭킹으로 RAG 검색 비용 절감, 세션 이력 압축 <b>-98%</b></li>
-      <li><b>병렬 실행 중 에이전트 충돌 대응:</b> 여러 에이전트가 동시에 PR에 의견을 내며 결과가 충돌 &rarr; CompletableFuture 타임아웃 가드 + Claude 재위임 기반 Conflict Resolution으로 자동 해결</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <div class="project-header">
-      <div class="project-title-wrap">
         <span class="project-title">인프라 자동화 / CI·CD 파이프라인 구축</span>
-        <span class="project-meta">백엔드 담당 · 2024 – 2025</span>
+        <span class="project-meta">2024 – 2025</span>
       </div>
       <a class="project-link" href="https://github.com/Minsu4302/DevOps_Infra">GitHub: DevOps_Infra</a>
     </div>
@@ -303,35 +266,67 @@ const html = `
 
     <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
     <ul>
-      <li><b>문제 정의:</b> 수동 빌드·배포 흐름(이미지 빌드/푸시 &rarr; 매니페스트 적용 &rarr; 롤링 확인)을 사람이 순차로 수행, 배포 시간 과다 및 휴먼 에러 반복 발생 &rarr; 인프라 전체를 코드화하고 end-to-end 무인 배포 파이프라인으로 전환</li>
+      <li>이미지 빌드·푸시, 매니페스트 적용, 롤링 확인까지 이어지는 배포 과정을 사람이 순서대로 수동 수행하다 보니 배포 시간이 오래 걸리고 실수가 반복됐습니다. 인프라 전체를 코드화하고, 사람 개입 없이 끝까지 도는 배포 파이프라인으로 전환했습니다.</li>
       <li><b>인프라 코드화:</b> Terraform으로 VM·네트워크 프로비저닝, Ansible로 Kubernetes 클러스터 구성 자동화 (MetalLB, Calico)</li>
-      <li><b>CI/CD 파이프라인 구축:</b> GitLab Webhook &rarr; Jenkins &rarr; Docker Registry &rarr; K8s 롤링 배포까지 end-to-end 자동화</li>
-      <li><b>GitLab Webhook 3단계 연쇄 장애 대응:</b> 내부 URL 차단·Egress 차단·Jenkins CSRF가 순차로 발생하며 빌드 트리거 연동 전체 실패 &rarr; 단계별 원인 특정 후 전부 해결, Webhook 정상화</li>
+      <li><b>CI/CD 파이프라인 구축:</b> GitLab Webhook → Jenkins → Docker Registry → K8s 롤링 배포까지 end-to-end 자동화</li>
+      <li><b>GitLab Webhook 3단계 연쇄 장애 대응:</b> 내부 URL 차단·Egress 차단·CSRF 순차 발생으로 빌드 트리거 전체 실패 → 단계별 원인 특정 후 전부 해결</li>
     </ul>
   </div>
 
   <div class="project">
     <div class="project-header">
       <div class="project-title-wrap">
-        <span class="project-title">TaskScope <span class="role">AI Agentic Task Tracer</span></span>
-        <span class="project-meta">백엔드 담당 · 2026.06 · 개발 완료</span>
+        <span class="project-title">LLM 기반 자동 모니터링 시스템</span>
+        <span class="project-meta">2025 · 실서비스 연동 완료</span>
+      </div>
+      <a class="project-link" href="https://github.com/Minsu4302/Auto-Logging-Monitoring-By-LLM">GitHub: Auto-Logging-Monitoring-By-LLM</a>
+    </div>
+    <div class="project-stack">FastAPI · SSE · Redis · Prometheus · Grafana · Elasticsearch · OTel Collector · Langfuse · React</div>
+
+    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
+    <ul>
+      <li>바이트픽을 운영하며 겪었던 수동 모니터링의 병목을 없애고 싶었습니다. 자연어 챗봇 하나로 모니터링 추가, 알림 규칙 생성, 대시보드 생성, 로그 검색까지 처리하도록 만들었습니다.</li>
+      <li><b>안전한 자동화 설계:</b> 자연어 요청을 Intent로 분류하고 화이트리스트로 검증한 뒤에만 실행하도록 만들어, 임의의 Shell 명령은 차단하고 허용된 7개 액션만 수행하게 했습니다.</li>
+      <li><b>실서비스 연동 완료:</b> 운영 중인 Spring Boot 서비스에 OTel Java Agent 연동, SSE 스트리밍 + Grafana 임베드로 단일 UI 구현</li>
+      <li><b>LLM 환각 대응:</b> LLM이 생성한 PromQL 오류로 대시보드 오작동 위험 발생 → Prometheus API로 자동 검증·보정하는 파이프라인 추가로 구조적 차단</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-wrap">
+        <span class="project-title">하네스 엔지니어링 + AI Orchestration</span>
+        <span class="project-meta">2025 · GCP 배포 완료</span>
+      </div>
+      <a class="project-link" href="https://github.com/Minsu4302/Harness_Infra">GitHub: Harness_Infra</a>
+    </div>
+    <div class="project-stack">Shell · Spring Boot · Java 21 · GCP · GitHub Actions · Docker · Claude / Gemini / GPT</div>
+
+    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
+    <ul>
+      <li>LLM 모니터링 시스템을 직접 만들면서, 정작 AI 에이전트 자신의 컨텍스트 관리와 토큰 비용, 품질 검증은 여전히 사람 손에 의존한다는 걸 깨달았습니다. 이 문제를 Harness(로컬)와 Orchestration(PR 자동 게이트) 두 레이어로 나눠 해결했습니다.</li>
+      <li><b>Orchestration:</b> PR 오픈 시 GitHub Actions → GCP 서비스가 diff 분석 후 review/security/test-gen 에이전트 병렬 실행, 멀티모델 라우팅</li>
+      <li><b>Harness:</b> Skeleton-of-Thought 기법으로 <b>CoT 출력 토큰 -75%</b>, 5턴 세션 기준 누적 토큰 소모 약 <b>-43%</b>, MMR 재랭킹으로 RAG 검색 비용 절감, 세션 이력 압축 <b>-98%</b></li>
+      <li><b>자기 수정 루프 설계:</b> 검증 실패 시 실패 컨텍스트 재주입 후 최대 3회 재시도, 초과 시 태스크 분할 강제로 무한 루프 차단(PEV·C10), 세션 종료 후 Reflection Agent가 인사이트를 다음 세션에 자동 주입</li>
+      <li>병렬 실행 중에는 여러 에이전트가 동시에 PR에 의견을 내면서 결과가 서로 충돌하는 문제가 생겼습니다. CompletableFuture로 타임아웃을 걸어 멈춘 에이전트를 정리하고, 충돌이 나면 Claude에게 판단을 다시 맡기는 방식으로 자동 해결되게 만들었습니다.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-wrap">
+        <span class="project-title">TaskScope — AI Agentic Task Tracer for Multi-Agent Systems</span>
+        <span class="project-meta">2026</span>
       </div>
       <a class="project-link" href="https://github.com/Minsu4302/taskscope">GitHub: taskscope</a>
     </div>
-    <div class="project-stack">Java 21 · Spring Boot 3.x · RabbitMQ · OpenTelemetry · Jaeger · Prometheus · Grafana · Anthropic Claude API (Haiku / Sonnet)</div>
+    <div class="project-stack">Java 21 · Spring Boot 3.x · RabbitMQ · OpenTelemetry · Jaeger · Prometheus · Grafana · Claude API (Haiku/Sonnet)</div>
 
-    <div class="project-category">주요 성과</div>
+    <div class="project-category">주요 성과 &amp; 트러블슈팅</div>
     <ul>
-      <li><b>문제 정의:</b> 하네스 + AI Orchestration 운영 중 "에이전트가 실제로 얼마를 쓰고 어디서 루프가 끊기는가"를 추적할 수 없는 가시성 공백 발견 &rarr; 멀티 에이전트 비용·품질·가시성을 동시에 통제하는 트레이싱 시스템 설계</li>
-      <li><b>trace propagation 100%:</b> traceparent 헤더 누락 버그 수정 후 dispatcher HTTP &rarr; AMQP &rarr; 3개 워커 &rarr; llm.call 전체를 단일 Jaeger trace(19 span)로 귀속. 0%에서 100%로</li>
-      <li><b>Prometheus 비용 가드레일 — 건당 3.2배 절감 (Phase 6 실측):</b> premium(Sonnet) &rarr; standard(Haiku) 자동 강등. $0.0528/건 &rarr; $0.0167/건. 단, standard 모델이 설정 누락성 결함을 일관되게 놓침 — 비용과 품질의 트레이드오프를 수치로 확인</li>
-      <li><b>복잡도 분류기 3피처 고도화:</b> diffLines + 파일확장자(.sh/.yml → context-heavy) + 워커종류(test_gen 별도 임계값) 3피처로 확장. Grafana 7개 패널로 비용/토큰/모델 분포 실시간 집계</li>
-    </ul>
-
-    <div class="project-category">트러블슈팅</div>
-    <ul class="ts-list">
-      <li><b>lazy regex 오진 — maxTokens 탓으로 잘못 추정 후 실제 원인 발견:</b> SMALL 커밋 JSON parse 실패 &rarr; maxTokens=2048 초과 오진 후 4096으로 증가 &rarr; 동일 에러 재발 &rarr; BaseWorker.extractJson()의 <code>[\s\S]*?</code> lazy regex가 응답 내 코드블록 backtick에서 조기 종료가 실제 원인 확인 <span class="arrow">&rarr;</span> <span class="result">greedy 교체로 iter 4&rarr;1 (-75%), 비용 $0.012&rarr;$0.002 (-83%)</span></li>
-      <li><b>구 worker 프로세스 누수 — 측정 비용의 10배 청구:</b> 측정 $0.4, 실제 청구 ~$5 &rarr; RabbitMQ redeliver=303 (publish=55 대비 6.5배) 발견 &rarr; 이전 세션 Java 프로세스 13개가 동일 큐에 붙어 메시지 중복 소비 <span class="arrow">&rarr;</span> <span class="result">세션 시작 전 프로세스 정리 체크리스트 수립, 비용 측정값·청구액 일치</span></li>
+      <li><b>Trace propagation 100% 달성:</b> 하네스로 비용은 줄였지만 어디서 왜 발생하는지 추적할 수 없다는 가시성 단절을 풀기 위해 멀티 에이전트 task 단위 추적 시스템을 설계했습니다. RabbitMQConfig의 observationEnabled 설정 누락으로 traceparent가 끊기던 원인을 잡아, dispatcher부터 LLM 호출까지 19개 span을 단일 trace로 귀속시켜 추적률을 100%까지 끌어올렸습니다.</li>
+      <li><b>Prometheus 기반 비용 가드레일 + 한계 정직하게 측정:</b> 평균 비용이 임계값을 넘으면 premium(Sonnet)→standard(Haiku) 자동 강등(건당 $0.0528→$0.0167, 3.2배 절감), 단 ground truth 비교 시 standard가 설정 누락성 결함을 일관되게 놓치는 한계를 식별</li>
+      <li><b>lazy regex 오진 대응:</b> maxTokens 초과로 추정했으나 4096으로 올려도 재현 → lazy 정규식이 응답 내부 코드블록에서 조기 종료되는 게 진짜 원인으로 특정, greedy 정규식 교체로 재시도 4회→1회(-75%), 건당 비용 -83%</li>
     </ul>
   </div>
 </section>

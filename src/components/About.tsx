@@ -1,7 +1,7 @@
 const stats = [
   { num: '163위', label: '앱스토어\n다운로드 순위' },
   { num: '30개', label: '운영 중인\n점주 수' },
-  { num: '6개월+', label: '실서비스\n운영 기간' },
+  { num: '9개월+', label: '실서비스\n운영 기간' },
   { num: '차석', label: '학과\n성적 순위' },
 ]
 
@@ -18,7 +18,7 @@ export default function About() {
         <div className="space-y-3 text-gray-600 text-sm leading-relaxed">
           <p>
             B2B 외식업 플랫폼{' '}
-            <span className="font-600 text-navy">바이트픽</span>에서 Backend를 단독으로 6개월 이상 운영하고 있습니다.
+            <span className="font-600 text-navy">바이트픽</span>에서 Backend를 단독으로 9개월 이상 운영하고 있습니다.
             30개 점주가 실제로 사용하는 서비스를 책임지며 앱스토어 다운로드 순위 163위를 달성했습니다.
           </p>
           <p>

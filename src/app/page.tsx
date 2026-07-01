@@ -43,7 +43,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-gray-100 py-6 text-center text-xs text-gray-400">
-        © 2026 차민수. Built with Next.js + Tailwind CSS.
+        © 2026 차민수 · <a href="https://github.com/Minsu4302/Portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors duration-150">Designed &amp; Developed by Minsu Cha</a>
       </footer>
     </>
   )
